@@ -9,3 +9,6 @@ Script to change your mac address
 
 # old.sh
 Restore old network interface names
+
+# non_free
+Add the non free repo to Debian bullseye
