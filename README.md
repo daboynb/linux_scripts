@@ -22,6 +22,7 @@ Fix usb not detected or working intermittently
 # nvidia.sh
 Create the key for sign the proprietary driver.
 Affter running you'll need to:
+
     - chose enroll mok --> continue --> yes --> insert the password --> reboot
     - download driver from nvidia (nvdiaxxx.run) and then chmod +x nvidia.run
     - run the driver setup, and choose "sign kernel with keys" and put the path of them
