@@ -12,3 +12,9 @@ Restore old network interface names
 
 # non_free
 Add the non free repo to Debian bullseye
+
+# 4K.sh
+Make grub bigger for 4k screen
+
+# fix_usb.sh
+Fix usb not detected or working intermittently 
