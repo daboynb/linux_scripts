@@ -27,3 +27,6 @@ Affter running you'll need to:
     - download driver from nvidia (nvdiaxxx.run) and then chmod +x nvidia.run
     - run the driver setup, and choose "sign kernel with keys" and put the path of them
     - reboot and run nvidia-smi to see if the drivers are installed correctly
+ 
+# brave.sh
+Install brave browser
