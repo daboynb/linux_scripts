@@ -30,3 +30,6 @@ Affter running you'll need to:
  
 # brave.sh
 Install brave browser
+
+# swapfile.sh
+Create a swapfile and set the swappiness value to 10
