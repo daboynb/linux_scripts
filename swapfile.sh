@@ -1,4 +1,4 @@
-#!/bin/
+#!/bin/bash
 # Ask for sudo privileges
 [ "$UID" -eq 0 ] || exec sudo "$0" "$@"
 
