@@ -1,3 +1,11 @@
+# No scripts
+To fix the time on dual boot:
+
+    timedatectl set-local-rtc 1 --adjust-system-clock 
+and reboot
+
+# Scripts
+-------------------------++++++++++++++++++++++++++++++++++++-------------------------
 # fw.sh
 Enable ufw, set it to deny any incoming connection and install gufw
 
