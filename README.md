@@ -1,8 +1,11 @@
 # No scripts
 To fix the time on dual boot:
 
-    timedatectl set-local-rtc 1 --adjust-system-clock 
-and reboot
+    timedatectl set-local-rtc 1 --adjust-system-clock && sudo reboot
+    
+Enable right click button on touchpad (notebook):
+
+    gsettings set org.gnome.desktop.peripherals.touchpad click-method 'areas'
 
 # Scripts
 -------------------------++++++++++++++++++++++++++++++++++++-------------------------
