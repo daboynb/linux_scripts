@@ -44,3 +44,6 @@ Install brave browser
 
 # swapfile.sh
 Create a swapfile and set the swappiness value to 10
+
+# bypass_ubuntu_upgrade.sh
+Bypass error "An upgrade from 'xxx' to 'xxx' is not supported with this tool.". For the releases that reached their eol.
