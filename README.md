@@ -31,7 +31,7 @@ Make grub bigger for 4k screen
 Fix usb not detected or working intermittently 
 
 # nvidia.sh
-Create the key for sign the proprietary driver and install.
+Create the key for sign the proprietary driver and install. [working on Debian not in ubuntu]
  
 # brave.sh
 Install brave browser
