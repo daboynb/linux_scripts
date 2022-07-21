@@ -22,7 +22,6 @@ Choose an option:  "
         ;;
     2)
             read -e -p "Enter Nvidia xxx.run path : " file
-            eval xyz=${abc[i]}
             eval file=$file
             echo "$file" | tr -d ''
             chmod +x $file
