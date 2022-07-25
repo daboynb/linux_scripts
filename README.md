@@ -1,4 +1,4 @@
-# No scripts
+# One line code
 To fix the time on dual boot:
 
     timedatectl set-local-rtc 1 --adjust-system-clock
