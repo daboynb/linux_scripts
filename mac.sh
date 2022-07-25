@@ -4,6 +4,7 @@
 [ "$UID" -eq 0 ] || exec sudo "$0" "$@"
 
 # Dependencies
+sudo dpkg -l | grep -qw net-tools || sudo apt install macchanger -y
 sudo dpkg -l | grep -qw net-tools || sudo apt install net-tools -y
 
 # Menu
