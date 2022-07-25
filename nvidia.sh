@@ -26,7 +26,7 @@ Choose an option:  "
             sudo reboot
         ;;
     2)
-            read -e -p "Enter Nvidia xxx.run path : " file
+            read -e -p "Drag & drop your Nvidia xxx.run file : " file
             eval file=$file
             echo "$file" | tr -d ''
             chmod +x $file
