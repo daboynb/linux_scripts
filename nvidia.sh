@@ -3,6 +3,11 @@
 # Dependencies
 sudo apt-get install linux-headers-$(uname -r) build-essential libglvnd-dev pkg-config -y
 
+# Add 32-bit libs
+sudo dpkg --add-architecture i386
+sudo apt update
+sudo apt install libc6:i386 -y
+
 # Menu
 mainmenu() {
     echo -ne "
