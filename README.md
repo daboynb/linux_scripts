@@ -1,11 +1,23 @@
 # No scripts
 To fix the time on dual boot:
 
-    timedatectl set-local-rtc 1 --adjust-system-clock && sudo reboot
+    timedatectl set-local-rtc 1 --adjust-system-clock
     
 Enable right click button on touchpad (gnome, notebook):
 
     gsettings set org.gnome.desktop.peripherals.touchpad click-method 'areas'
+
+Make grub bigger (4k screen):
+
+    sudo sed -i 's/#GRUB_GFXMODE="640x480"/GRUB_GFXMODE="640x480"/g' /etc/default/grub' && sudo update-grub
+
+Fix usb problems:
+
+    sudo sed -i 's/^GRUB_CMDLINE_LINUX_DEFAULT="/&acpi=force irqpoll /' /etc/default/grub && sudo update-grub
+
+Restore old network interface names:
+
+    sudo sed -i 's/^GRUB_CMDLINE_LINUX_DEFAULT="/&net.ifnames=0 biosdevname=0 /' /etc/default/grub && sudo update-grub
 
 # Scripts
 -------------------------++++++++++++++++++++++++++++++++++++-------------------------
@@ -18,17 +30,8 @@ Replace Systemd-boot with grub on pop_os
 # mac.sh
 Script to change your mac address
 
-# old.sh
-Restore old network interface names
-
 # non_free
 Add the non free repo to Debian bullseye
-
-# 4K.sh
-Make grub bigger for 4k screen
-
-# fix_usb.sh
-Fix usb not detected or working intermittently 
 
 # nvidia.sh
 Create the key for sign the proprietary driver and install. [Install is working on Debian but not in ubuntu]
