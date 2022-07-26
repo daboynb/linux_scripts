@@ -1,5 +1,6 @@
 #!/bin/bash
 # Repo added --> main, restricted, universe, multiverse. Normal updates and security ones.
+# Change mirror as you like, http://us.archive will be http://your_country_mirror.archive
 echo "Adding jammy repo"
 text="deb http://us.archive.ubuntu.com/ubuntu/ jammy main universe restricted multiverse
 deb-src http://us.archive.ubuntu.com/ubuntu/ jammy main universe restricted multiverse
