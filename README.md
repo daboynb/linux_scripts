@@ -1,26 +1,17 @@
-# One line code
-To fix the time on dual boot:
+# time.sh
+Fix the time on dual boot
 
-    timedatectl set-local-rtc 1 --adjust-system-clock
-    
-Enable right click button on touchpad (gnome, notebook):
+# right_touchpad.sh
+Enable right click button on touchpad (gnome, notebook)
 
-    gsettings set org.gnome.desktop.peripherals.touchpad click-method 'areas'
+# 4k.sh
+Make grub bigger (4k screen)
 
-Make grub bigger (4k screen):
+# fix_usb.sh
+Fix usb problems.
 
-    sudo sed -i 's/#GRUB_GFXMODE="640x480"/GRUB_GFXMODE="640x480"/g' /etc/default/grub' && sudo update-grub
-
-Fix usb problems:
-
-    sudo sed -i 's/^GRUB_CMDLINE_LINUX_DEFAULT="/&acpi=force irqpoll /' /etc/default/grub && sudo update-grub
-
-Restore old network interface names:
-
-    sudo sed -i 's/^GRUB_CMDLINE_LINUX_DEFAULT="/&net.ifnames=0 biosdevname=0 /' /etc/default/grub && sudo update-grub
-
-
-# Scripts
+# Old.sh
+Restore old network interface names. (wlan0, eth0)
 
 # fw.sh
 Enable ufw, set it to deny any incoming connection and install gufw
