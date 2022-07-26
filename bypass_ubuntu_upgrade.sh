@@ -1,6 +1,6 @@
 #!/bin/bash
 sudo sed -i 's/continue/pass/g' /usr/lib/python3/dist-packages/UpdateManager/Core/MetaRelease.py
-sed -i 's/hirsute/jammy/g' /etc/apt/sources.list
+sudo sed -i 's/hirsute/jammy/g' /etc/apt/sources.list
 sudo apt-get update
 echo "Upgrade distro"
 sudo do-release-upgrade
