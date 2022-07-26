@@ -1,5 +1,5 @@
 #!/bin/bash
-echo "Adding non-free repo"
+echo "Adding jammy repo"
 text="deb http://us.archive.ubuntu.com/ubuntu/ jammy main universe restricted multiverse
 deb-src http://us.archive.ubuntu.com/ubuntu/ jammy main universe restricted multiverse
 
