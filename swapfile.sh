@@ -13,3 +13,7 @@ sudo swapon /swapfile
 sudo su -c "echo '/swapfile swap swap defaults 0 0' >> /etc/fstab"
 sudo sysctl vm.swappiness=10
 sudo su -c "echo 'vm.swappiness=10' >> /etc/sysctl.conf"
+
+# Swappiness can be set to values between 0 and 100 
+# A low value means the kernel will try to avoid swapping as much as possible 
+# An higher value instead will make the kernel aggressively try to use swap space
