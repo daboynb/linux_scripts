@@ -2,14 +2,9 @@
 # Repo added --> main, restricted, universe, multiverse. Normal updates and security ones.
 # Change mirror as you like, http://us.archive will be http://your_country_mirror.archive
 echo "Adding jammy repo"
-text="deb http://us.archive.ubuntu.com/ubuntu/ jammy main universe restricted multiverse
-deb-src http://us.archive.ubuntu.com/ubuntu/ jammy main universe restricted multiverse
-
-deb http://security.ubuntu.com/ubuntu jammy-security main universe restricted multiverse
-deb-src http://security.ubuntu.com/ubuntu jammy-security main universe restricted multiverse
-
-deb http://us.archive.ubuntu.com/ubuntu/ jammy-updates main universe restricted multiverse
-deb-src http://us.archive.ubuntu.com/ubuntu/ jammy-updates main universe restricted multiverse"
+text="deb http://archive.ubuntu.com/ubuntu/ jammy main universe
+deb http://archive.ubuntu.com/ubuntu/ jammy-updates main universe
+deb http://security.ubuntu.com/ubuntu jammy-security main universe"
 
 sudo echo "$text" | sudo tee /etc/apt/sources.list
 sudo sed -i 's/continue/pass/g' /usr/lib/python3/dist-packages/UpdateManager/Core/MetaRelease.py
