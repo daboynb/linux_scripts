@@ -34,8 +34,11 @@ Install brave browser
 # swapfile.sh
 Create a swapfile and set the swappiness value to 10
 
-# bypass_ubuntu_upgrade.sh
-Bypass error "An upgrade from 'xxx' to 'xxx' is not supported with this tool.". For the releases that reached their eol.
+# eol_to_jammy_source.sh
+Bypass error "An upgrade from 'xxx' to 'xxx' is not supported with this tool". For the releases that reached their eol. This replace the sources.list with the jammy repo.
+
+# eol_to_jammy.sh
+Bypass error "An upgrade from 'xxx' to 'xxx' is not supported with this tool". For the releases that reached their eol. This replace the old distro codename in the sources.list to jammy.
 
 # telemetry_off.sh
 Disable ubuntu telemetry. 
