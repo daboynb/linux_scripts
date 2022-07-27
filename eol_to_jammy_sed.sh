@@ -1,4 +1,5 @@
 #!/bin/bash
+# replace hirsute with your currently installed distro codename.
 sudo sed -i 's/continue/pass/g' /usr/lib/python3/dist-packages/UpdateManager/Core/MetaRelease.py
 sudo sed -i 's/hirsute/jammy/g' /etc/apt/sources.list
 sudo apt-get update
