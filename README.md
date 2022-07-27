@@ -34,7 +34,7 @@ Install brave browser
 # swapfile.sh
 Create a swapfile and set the swappiness value to 10
 
-# eol_to_jammy_source.sh
+# upgrade_eol_to_jammy.sh
 Bypass error "An upgrade from 'xxx' to 'xxx' is not supported with this tool". For the releases that reached their eol. This replace the sources.list with the jammy repo.
 
 # eol_to_jammy.sh
