@@ -2,8 +2,10 @@
 echo "Adding jammy repo"
 text="deb http://archive.ubuntu.com/ubuntu/ jammy main universe restricted multiverse
 deb-src http://archive.ubuntu.com/ubuntu/ jammy main universe restricted multiverse
+
 deb http://archive.ubuntu.com/ubuntu/ jammy-updates main universe restricted multiverse
-deb-src http://archive.ubuntu.com/ubuntu/ jammy main universe restricted multiverse
+deb-src http://archive.ubuntu.com/ubuntu/ jammy-updates main universe restricted multiverse
+
 deb http://security.ubuntu.com/ubuntu jammy-security main universe restricted multiverse
 deb-src http://security.ubuntu.com/ubuntu jammy-security main universe restricted multiverse"
 
