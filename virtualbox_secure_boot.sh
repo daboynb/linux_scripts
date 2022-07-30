@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Dependencies
-sudo apt install virtualbox -y
+sudo apt-get install virtualbox-6.1 -y
 
 # Menu
 mainmenu() {
