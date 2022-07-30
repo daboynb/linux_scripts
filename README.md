@@ -42,6 +42,3 @@ Bypass error "An upgrade from 'xxx' to 'xxx' is not supported with this tool". F
 
 # telemetry_off.sh
 Disable ubuntu telemetry. 
-
-# virtualbox_secure_boot.sh
-Sign kernel modules for secureboot.
