@@ -1,11 +1,10 @@
 #!/bin/bash
 echo "Adding jammy repo"
-# Edit to your country mirror. For example, you can replace http://archive.ubuntu.com with http://es.archive.ubuntu.com. Do not modify jammy-security.
-text="deb http://archive.ubuntu.com/ubuntu/ jammy main universe restricted multiverse
-deb-src http://archive.ubuntu.com/ubuntu/ jammy main universe restricted multiverse
+text="deb mirror://mirrors.ubuntu.com/mirrors.txt jammy main universe restricted multiverse
+deb-src mirror://mirrors.ubuntu.com/mirrors.txt jammy main universe restricted multiverse
 
-deb http://archive.ubuntu.com/ubuntu/ jammy-updates main universe restricted multiverse
-deb-src http://archive.ubuntu.com/ubuntu/ jammy-updates main universe restricted multiverse
+deb mirror://mirrors.ubuntu.com/mirrors.txt jammy-updates main universe restricted multiverse
+deb-src mirror://mirrors.ubuntu.com/mirrors.txt jammy-updates main universe restricted multiverse
 
 deb http://security.ubuntu.com/ubuntu jammy-security main universe restricted multiverse
 deb-src http://security.ubuntu.com/ubuntu jammy-security main universe restricted multiverse"
