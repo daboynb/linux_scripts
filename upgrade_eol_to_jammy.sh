@@ -1,13 +1,13 @@
 #!/bin/bash
 echo "Adding jammy repo"
-text="deb mirror://mirrors.ubuntu.com/mirrors.txt jammy main universe restricted multiverse
-deb-src mirror://mirrors.ubuntu.com/mirrors.txt jammy main universe restricted multiverse
-
-deb mirror://mirrors.ubuntu.com/mirrors.txt jammy-updates main universe restricted multiverse
-deb-src mirror://mirrors.ubuntu.com/mirrors.txt jammy-updates main universe restricted multiverse
+text="deb http://archive.ubuntu.com/ubuntu/ jammy main universe restricted multiverse
+deb-src http://archive.ubuntu.com/ubuntu/ jammy main universe restricted multiverse
 
 deb http://security.ubuntu.com/ubuntu jammy-security main universe restricted multiverse
-deb-src http://security.ubuntu.com/ubuntu jammy-security main universe restricted multiverse"
+deb-src http://security.ubuntu.com/ubuntu jammy-security main universe restricted multiverse
+
+deb http://archive.ubuntu.com/ubuntu/ jammy-updates main universe restricted multiverse
+deb-src http://archive.ubuntu.com/ubuntu/ jammy-updates main universe restricted multiverse"
 
 sudo echo "$text" | sudo tee /etc/apt/sources.list
 sudo sed -i 's/continue/pass/g' /usr/lib/python3/dist-packages/UpdateManager/Core/MetaRelease.py
