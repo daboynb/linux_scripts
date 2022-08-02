@@ -35,7 +35,9 @@ Install brave browser
 Create a swapfile and set the swappiness value to 10
 
 # upgrade_eol_to_jammy.sh
-Upgrade ubuntu 21.04 or 21.10 to 22.04, all methods and with the "An upgrade from 'xxx' to 'xxx' is not supported with this tool" error fixed.
+Upgrade ubuntu 21.04 or 21.10 to 22.04
+All aviable methods.
+Error "An upgrade from 'xxx' to 'xxx' is not supported with this tool" fixed.
 
 # telemetry_off.sh
 Disable ubuntu telemetry. 
