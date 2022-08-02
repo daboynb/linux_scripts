@@ -3,7 +3,7 @@
 [ "$UID" -eq 0 ] || exec sudo "$0" "$@"
 
 echo "WELCOME TO THE UBUNTU 21.04 AND 21.10 UPGRADE SCRIPT"
-echo "If the first fails, try with the third."
+echo "If the first fails, try with the second."
 
 # Menu
 mainmenu() {
