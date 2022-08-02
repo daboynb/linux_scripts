@@ -17,7 +17,7 @@ Choose an option:  "
     case $ans in
 
     1)
-        # Detect hirsute, change repos to old-releases.ubuntu.com and replace codename in the sources.list
+        # Detect hirsute, change repos to old-releases.ubuntu.com 
         if cat /etc/apt/sources.list | grep hirsute
         then
             echo "You're on hirsute"
@@ -27,7 +27,7 @@ deb http://old-releases.ubuntu.com/ubuntu/ hirsute-security main restricted univ
         sudo echo "$text" | sudo tee /etc/apt/sources.list
         fi
 
-        # Detect impish, change repos to old-releases.ubuntu.com and replace codename in the sources.list
+        # Detect impish, change repos to old-releases.ubuntu.com 
         if cat /etc/apt/sources.list | grep impish
         then
             echo "You're on impish"
