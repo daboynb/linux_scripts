@@ -1,3 +1,4 @@
+#!/bin/bash
 # Variable
 text="button.titlebutton {
   min-height: 24px;
