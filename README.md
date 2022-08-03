@@ -41,3 +41,7 @@ Error "An upgrade from 'xxx' to 'xxx' is not supported with this tool" fixed.
 
 # telemetry_off.sh
 Disable ubuntu telemetry. 
+
+# gtk.sh
+Change the colors of the window buttons like this. Need to reboot to apply globally, only restarting gnome will not affect all apps.
+<img width="621" alt="Cattura" src="https://user-images.githubusercontent.com/106079917/182578591-e1f66390-a5f7-4bd0-a995-71ee09f89091.PNG">
