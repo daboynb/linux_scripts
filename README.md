@@ -10,7 +10,7 @@ Make grub bigger (4k screen)
 # fix_usb.sh
 Fix usb problems.
 
-# Old.sh
+# old.sh
 Restore old network interface names. (wlan0, eth0)
 
 # fw.sh
