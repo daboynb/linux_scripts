@@ -1,8 +1,8 @@
 # time.sh
 Fix the time on dual boot
 
-# right_touchpad.sh
-Enable right click button on touchpad (gnome, notebook)
+# gnome_shell.sh
+Enable right click touchpad and the close,minimize,maximize buttons on gnome shell
 
 # 4k.sh
 Make grub bigger (4k screen)
@@ -47,4 +47,4 @@ Change the colors of the window buttons like this. Need to reboot to apply globa
 <img width="621" alt="Cattura" src="https://user-images.githubusercontent.com/106079917/182578591-e1f66390-a5f7-4bd0-a995-71ee09f89091.PNG">
 
 # sign_vmware.sh
-Sign kernel module for secureboot on vmware
+Sign kernel module for secureboot on vmware.
