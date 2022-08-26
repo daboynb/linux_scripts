@@ -1,10 +1,9 @@
 #!/bin/bash
+# Ask for sudo privileges
+[ "$UID" -eq 0 ] || exec sudo "$0" "$@"
 
 echo "WELCOME TO THE UBUNTU 21.04 AND 21.10 UPGRADE SCRIPT"
 echo "If the first fails, try with the second."
-
-# Diable external repos
-cd /etc/apt/sources.list.d && sudo bash -c 'for i in *.list; do mv ${i} ${i}.disabled; done' && cd /home/"$USER"
 
 # Menu
 mainmenu() {
