@@ -14,7 +14,7 @@ else
   echo "skipping"
 fi
 
-# Ask for /boot partition
+# Ask for /efi partition
 read -p "Do you have the /efi partition too? <y/N> " prompt
 if [[ $prompt == "y" || $prompt == "Y" || $prompt == "yes" || $prompt == "Yes" ]]
 then
