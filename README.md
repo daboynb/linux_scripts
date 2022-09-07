@@ -50,4 +50,4 @@ Change the colors of the window buttons like this. Need to reboot to apply globa
 Sign kernel module for secureboot on vmware.
 
 # boot_repair.sh
-Repair grub with a live iso.
+Repair grub, chroot and grub-install.
