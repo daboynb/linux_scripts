@@ -49,5 +49,5 @@ Change the colors of the window buttons like this. Need to reboot to apply globa
 # sign_vmware.sh
 Sign kernel module for secureboot on vmware.
 
-# boot_repair.sh
-Repair grub (chroot and grub-install). Tested on ubuntu 22.04.
+# ubuntu_boot_repair.sh
+Repair grub for ubuntu (chroot and grub-install). Tested on ubuntu 22.04.
