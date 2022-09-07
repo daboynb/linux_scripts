@@ -1,28 +1,28 @@
 # List disks and partitions
 sudo fdisk -l
 
-# Ask for root partition name
-read -r -p "Enter root partition (example /dev/sdax): " root
-
-# Ask for /boot partition
-read -p "Do you have the /boot partition too? <y/N> " prompt
+# Ask for /efi partition
+read -p "Do you have the /efi partition ? <y/N> " prompt
 if [[ $prompt == "y" || $prompt == "Y" || $prompt == "yes" || $prompt == "Yes" ]]
 then
-    read -r -p "Enter boot partition: (example /dev/sdax)" boot
+    read -r -p "Enter efi partition (example /dev/sdax): " efi
+    sudo mount $efi /mnt/boot/efi
+else
+  echo "skipping"
+fi
+
+# Ask for /boot partition
+read -p "Do you have the /boot partition ? <y/N> " prompt
+if [[ $prompt == "y" || $prompt == "Y" || $prompt == "yes" || $prompt == "Yes" ]]
+then
+    read -r -p "Enter boot partition (example /dev/sdax): " boot
     sudo mount $boot /mnt/boot
 else
   echo "skipping"
 fi
 
-# Ask for /efi partition
-read -p "Do you have the /efi partition too? <y/N> " prompt
-if [[ $prompt == "y" || $prompt == "Y" || $prompt == "yes" || $prompt == "Yes" ]]
-then
-    read -r -p "Enter efi partition: (example /dev/sdax)" efi
-    sudo mount $efi /mnt/boot/efi
-else
-  echo "skipping"
-fi
+# Ask for root partition name
+read -r -p "Enter root partition (example /dev/sdax): " root
 
 # Mount 
 sudo mount $root /mnt
