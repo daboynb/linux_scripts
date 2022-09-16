@@ -1,15 +1,11 @@
 # List disks and partitions
 sudo fdisk -l
 
-# Ask for /efi partition
-read -p "Do you have the /efi partition ? <y/N> " prompt
-if [[ $prompt == "y" || $prompt == "Y" || $prompt == "yes" || $prompt == "Yes" ]]
-then
-    read -r -p "Enter efi partition (example /dev/sdax): " efi
-    sudo mount $efi /mnt/boot/efi
-else
-  echo "skipping"
-fi
+# Ask for root partition name
+read -r -p "Enter root partition (example /dev/sdax): " root
+
+# Mount root
+sudo mount $root /mnt
 
 # Ask for /boot partition
 read -p "Do you have the /boot partition ? <y/N> " prompt
@@ -21,11 +17,15 @@ else
   echo "skipping"
 fi
 
-# Ask for root partition name
-read -r -p "Enter root partition (example /dev/sdax): " root
-
-# Mount 
-sudo mount $root /mnt
+# Ask for /efi partition
+read -p "Do you have the /efi partition ? <y/N> " prompt
+if [[ $prompt == "y" || $prompt == "Y" || $prompt == "yes" || $prompt == "Yes" ]]
+then
+    read -r -p "Enter efi partition (example /dev/sdax): " efi
+    sudo mount $efi /mnt/boot/efi
+else
+  echo "skipping"
+fi
 
 sudo mount --bind /dev /mnt/dev &&
 sudo mount --bind /dev/pts /mnt/dev/pts &&
