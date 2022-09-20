@@ -54,3 +54,4 @@ Repair grub for ubuntu (chroot and grub-install). Tested on ubuntu 22.04.
 
 # enable_backspace.sh
 Set "Backspace" to Go Back in Nautilus.
+Thanks to https://github.com/riclc/nautilus_backspace.
