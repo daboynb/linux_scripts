@@ -18,8 +18,6 @@ Choose an option:  "
     case $ans in
 
     1)
-            # Stop network-manager
-            sudo systemctl stop NetworkManager.service
             # Ifconfig
             sudo ifconfig
             # Ask for input
@@ -27,12 +25,8 @@ Choose an option:  "
             sudo ifconfig "$netinterface" down
             sudo macchanger -r "$netinterface"
             sudo ifconfig "$netinterface" up 
-            # Stop network-manager
-            sudo systemctl start NetworkManager.service
         ;;
     2)
-            # Stop network-manager
-            sudo systemctl stop NetworkManager.service
             # Ifconfig
             sudo ifconfig
             # Ask for input
@@ -41,8 +35,6 @@ Choose an option:  "
             sudo ifconfig "$netinterface" down
             sudo macchanger -m "$custom" "$netinterface"
             sudo ifconfig "$netinterface" up 
-            # Stop network-manager
-            sudo systemctl start NetworkManager.service
         ;;
     0)      
             echo "Bye bye."
