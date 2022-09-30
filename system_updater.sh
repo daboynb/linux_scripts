@@ -35,6 +35,3 @@ then
 sudo fwupdmgr refresh
 sudo fwupdmgr update -y
 fi
-
-
-
