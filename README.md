@@ -58,3 +58,6 @@ Thanks to https://github.com/riclc/nautilus_backspace.
 
 # system_updater.sh
 Update the system with apt, then check updates for flatpack, snap and fwupd.
+
+# add_firefox_ubuntu.sh
+Add firefox from ppa ubuntu.
