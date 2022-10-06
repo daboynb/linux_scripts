@@ -5,7 +5,6 @@
 
 # Dependencies
 sudo dpkg -l | grep -qw net-tools || sudo apt install macchanger -y
-sudo dpkg -l | grep -qw net-tools || sudo apt install net-tools -y
 
 # Menu
 mainmenu() {
@@ -19,12 +18,12 @@ Choose an option:  "
 
     1)
             # Ifconfig
-            sudo ifconfig
+            ip link ls     
             # Ask for input
             read -r -p "Enter interface name: " netinterface
-            sudo ifconfig "$netinterface" down
+            sudo ip link set dev "$netinterface" down
             sudo macchanger -r "$netinterface"
-            sudo ifconfig "$netinterface" up 
+            sudo ip link set dev "$netinterface" up
         ;;
     2)
             # Ifconfig
@@ -32,9 +31,9 @@ Choose an option:  "
             # Ask for input
             read -r -p "Enter interface name: " netinterface
             read -r -p "Enter custom mac (ex. b2:aa:0e:56:ed:f7) : " custom
-            sudo ifconfig "$netinterface" down
+            sudo ip link set dev "$netinterface" down
             sudo macchanger -m "$custom" "$netinterface"
-            sudo ifconfig "$netinterface" up 
+            sudo ip link set dev "$netinterface" up 
         ;;
     0)      
             echo "Bye bye."
