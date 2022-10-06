@@ -27,7 +27,7 @@ Choose an option:  "
         ;;
     2)
             # Ifconfig
-            sudo ifconfig
+            ip link ls  
             # Ask for input
             read -r -p "Enter interface name: " netinterface
             read -r -p "Enter custom mac (ex. b2:aa:0e:56:ed:f7) : " custom
