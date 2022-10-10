@@ -26,7 +26,7 @@ Script to change your mac address
 Add the non free repo to Debian bullseye
 
 # nvidia.sh
-Create the key for sign the proprietary driver and install. [Install is working on Debian but not in ubuntu]
+Sign the nvidia drivers (secureboot) and install. [Working on Debian but not in ubuntu]
  
 # brave.sh
 Install brave browser
@@ -57,7 +57,7 @@ Set "Backspace" to Go Back in Nautilus.
 Thanks to https://github.com/riclc/nautilus_backspace.
 
 # system_updater.sh
-Update the system with apt, then check updates for flatpack, snap and fwupd.
+Update the system with apt, then check updates for flatpak, snap and fwupd.
 
 # firefox_from_ppa_ubuntu.sh
 Add firefox from ppa ubuntu.
