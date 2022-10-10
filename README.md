@@ -61,3 +61,6 @@ Update the system with apt, then check updates for flatpak, snap and fwupd.
 
 # firefox_from_ppa_ubuntu.sh
 Add firefox from ppa ubuntu.
+
+# hide_ad.sh
+Hide the "Try Ubuntu Pro beta with a free personal subscription on up to 5 machines".
