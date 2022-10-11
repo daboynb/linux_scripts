@@ -1,3 +1,5 @@
+sudo snap remove firefox
+
 printf "Package: *\nPin: release o=LP-PPA-mozillateam\nPin-Priority: 1001" >> mozilla-firefox
 sudo mv mozilla-firefox /etc/apt/preferences.d/mozilla-firefox
 sudo chown root:root /etc/apt/preferences.d/mozilla-firefox
