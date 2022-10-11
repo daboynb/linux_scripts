@@ -64,3 +64,6 @@ Remove firefox snap and add firefox from ppa.
 
 # hide_ad.sh
 Hide the "Try Ubuntu Pro beta with a free personal subscription on up to 5 machines".
+
+# back_to_stock.sh
+Disable all inside sources.list.d and restore the sources.list.
