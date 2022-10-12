@@ -67,3 +67,6 @@ Hide the "Try Ubuntu Pro beta with a free personal subscription on up to 5 machi
 
 # back_to_stock.sh
 Disable all inside sources.list.d and restore the sources.list.
+
+# no_snap.sh
+It removes snapd & telemetry and installs flatpak & gnome-software center.
