@@ -70,3 +70,6 @@ Disable all inside sources.list.d and restore the sources.list.
 
 # no_snap.sh
 It removes snapd & telemetry and installs flatpak & gnome-software center.
+ 
+# os_prober_enable.sh
+Enable os prober to discover other os.
