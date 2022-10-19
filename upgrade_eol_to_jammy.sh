@@ -1,9 +1,9 @@
 #!/bin/bash
-# Ask for sudo privileges
-[ "$UID" -eq 0 ] || exec sudo "$0" "$@"
 
 echo "WELCOME TO THE UBUNTU 21.04 AND 21.10 UPGRADE SCRIPT"
 echo "If the first fails, try with the second."
+
+codename=$(awk '/UBUNTU_CODENAME=/' /etc/os-release | sed 's/UBUNTU_CODENAME=//' | sed 's/[.]0/./')
 
 # Menu
 mainmenu() {
@@ -18,8 +18,7 @@ Choose an option:  "
 
     1)
         # Detect hirsute, change repos to old-releases.ubuntu.com 
-        if cat /etc/apt/sources.list | grep hirsute
-        then
+        if [ $codename == hirsute ]; then
             echo "You're on hirsute"
             text="deb http://old-releases.ubuntu.com/ubuntu/ hirsute main restricted universe multiverse
 deb http://old-releases.ubuntu.com/ubuntu/ hirsute-updates main restricted universe multiverse
@@ -28,8 +27,7 @@ deb http://old-releases.ubuntu.com/ubuntu/ hirsute-security main restricted univ
         fi
 
         # Detect impish, change repos to old-releases.ubuntu.com 
-        if cat /etc/apt/sources.list | grep impish
-        then
+        if [ $codename == impish ]; then
             echo "You're on impish"
             text="deb http://old-releases.ubuntu.com/ubuntu/ impish main restricted universe multiverse
 deb http://old-releases.ubuntu.com/ubuntu/ impish-updates main restricted universe multiverse
@@ -73,16 +71,14 @@ deb-src http://archive.ubuntu.com/ubuntu/ jammy-updates main universe restricted
         ;;
     3)   
         # Detect hirsute and replace codename in the sources.list
-        if cat /etc/apt/sources.list | grep hirsute
-        then
+        if [ $codename == hirsute ]; then
             echo "You're on hirsute"
             echo "adding jammy repos"
             sudo sed -i 's/hirsute/jammy/g' /etc/apt/sources.list
         fi
 
         # Detect impish and replace codename in the sources.list
-        if cat /etc/apt/sources.list | grep impish
-        then
+        if [ $codename == impish ]; then
             echo "You're on impish"
             echo "adding jammy repos"
             sudo sed -i 's/impish/jammy/g' /etc/apt/sources.list
