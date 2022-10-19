@@ -15,12 +15,12 @@ deb-src http://archive.ubuntu.com/ubuntu/ $codename-updates main universe restri
 sudo echo "$text" | sudo tee /etc/apt/sources.list
 
 # Start upgrade
-sudo apt-get update
-sudo apt-get update
-sudo apt-get upgrade -y
-sudo apt-get dist-upgrade -y
-sudo apt-get install -f -y
-sudo apt-get autoremove --purge -y
+sudo apt update
+sudo apt update
+sudo apt upgrade -y
+sudo apt dist-upgrade -y
+sudo apt install -f -y
+sudo apt autoremove --purge -y
 
 echo ""
 echo "All inside /etc/apt/sources.list.d is now disabled. Enable ONLY what you need!"
