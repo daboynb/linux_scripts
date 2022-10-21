@@ -3,6 +3,14 @@
 # Start
 sudo apt update
 
+sudo snap remove --purge firefox
+sudo snap remove --purge gnome-3-38-2004
+sudo snap remove --purge snap-store
+sudo snap remove --purge snapd-desktop-integration
+sudo snap remove --purge bare
+sudo snap remove --purge gtk-common-themes
+sudo snap remove --purge core20
+
 # Fix for gedit error "Failed to execute child process dbus-launch"
 sudo apt install dbus-x11 -y
 
@@ -12,6 +20,7 @@ echo "Removing snap...This will take a while"
 sudo systemctl stop snapd && sudo systemctl disable snapd
 
 # Uninstall
+sudo umount /var/snap/firefox/common/host-hunspell
 sudo apt purge -y snapd 
 sudo apt purge -y gnome-software-plugin-snap 
 
@@ -60,20 +69,10 @@ sudo add-apt-repository ppa:mozillateam/ppa -y
 sudo apt update
 sudo apt install firefox -y
 
-echo "Update, clean the system and reinstall important packages"
+echo "Update, clean the system"
 # Remove snap folders
 rm -rf ~/snap
 sudo rm -rf /snap /var/snap /var/lib/snapd /var/cache/snapd /usr/lib/snapd
-
-# Grep the autoremove output and delete apport from it
-sudo apt --dry-run autoremove | grep -Po 'Remv \K[^ ]+'  > ./autoremove.txt
-sed '/apport*/d' autoremove.txt > reinstall.txt
-rm autoremove.txt
-sudo apt autoremove --purge -y
-
-# Reinstall removed packages 
-xargs -a reinstall.txt sudo apt install -y
-rm reinstall.txt
 
 # Update system
 sudo apt update
