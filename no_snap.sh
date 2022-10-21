@@ -1,5 +1,5 @@
 #!/bin/bash
-
+# Tested on 22.04 and 22.10
 # Start
 sudo apt update
 
