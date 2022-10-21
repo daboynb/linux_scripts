@@ -3,8 +3,8 @@
 # Start
 sudo apt update
 
-# Fix for gedit error "Failed to execute child process dbus-launch"
-sudo apt install dbus-x11 -y
+# Fix for gedit error "Failed to execute child process dbus-launch" enable if you want
+# sudo apt install dbus-x11 -y
 
 echo "Removing snap...This will take a while"
 
