@@ -69,7 +69,7 @@ Hide the "Try Ubuntu Pro beta with a free personal subscription on up to 5 machi
 Disable all inside sources.list.d and restore the sources.list.
 
 # no_snap.sh
-It removes snapd & telemetry and installs flatpak & gnome-software center.
+Remove snapd. 
  
 # os_prober_enable.sh
 Enable os prober to discover other os.
