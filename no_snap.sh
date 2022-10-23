@@ -14,7 +14,7 @@ sudo snap remove --purge snapd-desktop-integration
 sudo snap remove --purge bare
 sudo snap remove --purge core20
 
-# Stop the daemon
+# Stop the daemon and disable it
 sudo systemctl stop snapd && sudo systemctl disable snapd
 
 # Purge snapd
@@ -29,7 +29,7 @@ sudo chown root:root /etc/apt/preferences.d/no-snap.pref
 # Done
 echo "Snap removed"
 
-# Prevent firefox snap from being reinstalled 
+# Configure firefox to be installed only from the ppa 
 echo "Setting firefox preferences"
 printf "Package: *\nPin: release o=LP-PPA-mozillateam\nPin-Priority: 1001" >> mozilla-firefox 
 sudo mv mozilla-firefox /etc/apt/preferences.d/mozilla-firefox
