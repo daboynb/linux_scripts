@@ -1,4 +1,8 @@
 # Disabling telemetry
+
+# Disable the service
+sudo systemctl disable apport.service
+
 echo "Disabling telemetry"
 sudo apt remove ubuntu-report whoopsie apport -y
 
