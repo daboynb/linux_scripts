@@ -76,3 +76,6 @@ Enable os prober to discover other os.
 
 # key_deprecation
 Fix the warning "Key is stored in legacy trusted.gpg keyring (/etc/apt/trusted.gpg), see the DEPRECATION section in apt-key(8) for details."
+
+# mongodb_jammy.sh
+Add mongodb repo on jammy
