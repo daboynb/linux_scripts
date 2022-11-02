@@ -13,6 +13,3 @@ sudo /usr/src/linux-headers-`uname -r`/scripts/sign-file sha256 ./MOK.priv ./MOK
 mokutil --import MOK.der
 read -p "Now, after pressing enter it will reboot; at boot chose enroll mok --> continue --> yes --> insert the password --> reboot"
 sudo reboot
-
-
-
