@@ -35,7 +35,7 @@ fi
 # Arch
 if [ "$pacman" == "pacman" ]; then
 echo "You're on Arch"
-sudo pacman -S pastebinit --noconfirm
+sudo pacman -Syu pastebinit --noconfirm
 fi
 
 ( sudo lspci ;uname -a ) >info.txt
