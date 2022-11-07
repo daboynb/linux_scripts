@@ -1,3 +1,4 @@
+#!/bin/bash
 # Check for dpkg lock
 while sudo fuser /var/{lib/{dpkg,apt/lists},cache/apt/archives}/lock >/dev/null 2>&1; do
 sleep 1
@@ -35,3 +36,4 @@ then
 sudo fwupdmgr refresh
 sudo fwupdmgr update -y
 fi
+echo "Completed"

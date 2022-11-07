@@ -73,3 +73,4 @@ else
     mkdir -p /home/"$USER"/.config/gtk-5.0
     echo "$text" | tee /home/"$USER"/.config/gtk-5.0/gtk.css
 fi
+echo "Completed"

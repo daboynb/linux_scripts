@@ -1,3 +1,4 @@
+#!/bin/bash
 # Detect os codename
 codename=$(awk '/UBUNTU_CODENAME=/' /etc/os-release | sed 's/UBUNTU_CODENAME=//' | sed 's/[.]0/./')
 

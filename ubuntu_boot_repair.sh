@@ -47,3 +47,4 @@ sudo umount -l /mnt/dev/pts &&
 sudo umount -l /mnt/dev &&
 sudo umount -l /mnt/run &&
 sudo umount -l /mnt
+echo "Completed"

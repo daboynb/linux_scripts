@@ -1,3 +1,5 @@
+#!/bin/bash
+echo "Remove ff snap"
 sudo snap remove firefox
 
 printf "Package: *\nPin: release o=LP-PPA-mozillateam\nPin-Priority: 1001" >> mozilla-firefox
@@ -11,3 +13,4 @@ sudo chown root:root /etc/apt/apt.conf.d/51unattended-upgrades-firefox
 sudo add-apt-repository ppa:mozillateam/ppa -y
 sudo apt update
 sudo apt install firefox -y
+echo "Completed"

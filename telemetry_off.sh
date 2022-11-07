@@ -1,4 +1,5 @@
-# Disabling telemetry
+#!/bin/bash
+# Disable telemetry
 
 # Disable the services
 systemctl stop apport.service
@@ -21,3 +22,4 @@ sudo chown root:root /etc/apt/preferences.d/no-whoopsie.pref
 printf "Package: apport\nPin: release a=*\nPin-Priority: -10" >> no-apport.pref 
 sudo mv no-apport.pref /etc/apt/preferences.d/
 sudo chown root:root /etc/apt/preferences.d/no-apport.pref
+echo "Completed"
