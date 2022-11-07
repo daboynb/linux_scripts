@@ -38,5 +38,5 @@ echo "You're on Arch"
 sudo pacman -S pastebinit --noconfirm
 fi
 
-( sudo lspci t ;uname -a ) >info.txt
+( sudo lspci ;uname -a ) >info.txt
 pastebinit -i info.txt -b http://pastebin.com
