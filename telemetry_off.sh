@@ -2,9 +2,9 @@
 # Disable telemetry
 
 # Disable the services
-systemctl stop apport.service
+sudo systemctl stop apport.service
 sudo systemctl disable apport.service
-systemctl stop whoopsie.service
+sudo systemctl stop whoopsie.service
 sudo systemctl disable whoopsie.service
 
 echo "Disabling telemetry"
