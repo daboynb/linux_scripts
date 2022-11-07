@@ -1,3 +1,4 @@
+#!/bin/bash
 # List disks and partitions
 sudo fdisk -l
 

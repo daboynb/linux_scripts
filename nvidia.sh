@@ -1,5 +1,4 @@
 #!/bin/bash
-
 # Dependencies
 sudo apt-get install linux-headers-$(uname -r) build-essential libglvnd-dev pkg-config -y
 
