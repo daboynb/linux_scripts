@@ -21,19 +21,19 @@ arch=arch
 fi
 
 # Debian
-if [ $apt == "apt" ]; then
+if [ "$apt" == "apt" ]; then
 echo "You're on Debian"
 sudo apt install pastebinit -y
 fi
 
 # Fedora 
-if [ $dnf == "dnf" ]; then
+if [ "$dnf" == "dnf" ]; then
 echo "You're on Fedora"
 sudo dnf install pastebinit -y
 fi
 
 # Arch
-if [ $pacman == "pacman" ]; then
+if [ "$pacman" == "pacman" ]; then
 echo "You're on Arch"
 sudo pacman -S pastebinit --noconfirm
 fi
