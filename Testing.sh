@@ -34,7 +34,7 @@ fi
 
 # Arch
 if [ $pacman == pacman ]; then
-echo "You're on Fedora"
+echo "You're on Arch"
 sudo pacman -S pastebinit --noconfirm
 fi
 
