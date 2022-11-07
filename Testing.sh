@@ -21,4 +21,5 @@ sudo pacman -Syu pastebinit --noconfirm
 fi
 
 ( sudo lspci ;uname -a ) >info.txt
-pastebinit -i info.txt -b http://pastebin.com
+cat info.txt | nc termbin.com 9999
+
