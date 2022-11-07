@@ -78,4 +78,7 @@ Enable os prober to discover other os.
 Fix the warning "Key is stored in legacy trusted.gpg keyring (/etc/apt/trusted.gpg), see the DEPRECATION section in apt-key(8) for details."
 
 # mongodb_jammy.sh
-Add mongodb repo on jammy
+Add mongodb repo on jammy.
+
+# system_info.sh
+Grab system info and upload on termbin.com.
