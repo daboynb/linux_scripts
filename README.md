@@ -80,5 +80,5 @@ Fix the warning "Key is stored in legacy trusted.gpg keyring (/etc/apt/trusted.g
 # mongodb_jammy.sh
 Add mongodb repo on jammy.
 
-# system_info.sh
-Grab system infos and upload on termbin.com.
+# system_&_hw_info.sh
+Grab system and hardware infos and upload on termbin.com.
