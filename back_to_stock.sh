@@ -17,10 +17,9 @@ sudo echo "$text" | sudo tee /etc/apt/sources.list
 
 # Start upgrade
 sudo apt update
-sudo apt update
+sudo apt install -f -y
 sudo apt upgrade -y
 sudo apt dist-upgrade -y
-sudo apt install -f -y
 sudo apt autoremove --purge -y
 
 echo ""
