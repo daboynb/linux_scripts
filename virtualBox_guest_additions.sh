@@ -12,4 +12,5 @@ chmod +x ./*.run
 sudo ./*.run
 cd /home/"$USER"
 rm -rf VBoxGuestAdditions 
+sudo adduser "$USER" vboxsf
 echo "Done"
