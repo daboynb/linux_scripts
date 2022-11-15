@@ -82,3 +82,6 @@ Add mongodb repo on jammy.
 
 # grab_info.sh
 Grab system and hardware infos and upload on termbin.com.
+
+# bk.sh
+Very simple backup script.
