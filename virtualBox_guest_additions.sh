@@ -1,7 +1,7 @@
 #!/bin/bash
 # Pre requisites
 sudo apt update
-sudo apt-get install p7zip-full build-essential -y
+sudo apt install p7zip-full build-essential -y
 
 # Download and install VirtualBox Guest Additions
 mkdir /home/"$USER"/VBoxGuestAdditions
@@ -11,4 +11,4 @@ wget http://download.virtualbox.org/virtualbox/7.0.2/VBoxGuestAdditions_7.0.2.is
 chmod +x ./*.run
 sudo ./*.run
 echo "Done"
-rm -rf VBoxGuestAdditions
+rm -rf VBoxGuestAdditions 
