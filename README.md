@@ -86,5 +86,5 @@ Grab system and hardware infos and upload on termbin.com.
 # bk.sh
 Very simple backup script.
 
-# virtualBox_guest_dditions.sh
-Install virtualBox_guest_dditions.
+# virtualBox_guest_aditions.sh
+Install virtualBox_guest_additions.
