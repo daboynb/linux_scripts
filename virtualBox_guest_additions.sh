@@ -10,3 +10,4 @@ wget http://download.virtualbox.org/virtualbox/7.0.2/VBoxGuestAdditions_7.0.2.is
 7z x VBoxGuestAdditions*.iso 
 chmod +x ./*.run
 sudo ./*.run
+echo "Done"
