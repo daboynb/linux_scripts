@@ -26,8 +26,7 @@ Choose an option:  "
         ;;
     2)
             read -e -p "Drag & drop your Nvidia xxx.run file : " file
-            eval file=$file
-            echo "$file" | tr -d ''
+            eval file="$file"
             chmod +x $file
             sudo $file --module-signing-secret-key=/home/"$USER"/Nvidia.key --module-signing-public-key=/home/"$USER"/Nvidia.der
         ;;
