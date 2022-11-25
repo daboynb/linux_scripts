@@ -88,3 +88,6 @@ Very simple backup script.
 
 # virtualBox_guest_aditions.sh
 Install virtualBox_guest_additions.
+
+# dolphin.sh
+Run dolphin as root with the alias "dp".
