@@ -10,3 +10,4 @@ alias="alias dp="\""/home/$USER/.dolphin.sh"\"""
 echo "$alias" >> /home/"$USER"/.bashrc
 # Update .bashrc
 source /home/"$USER"/.bashrc
+echo "Done"
