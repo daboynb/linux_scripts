@@ -90,4 +90,4 @@ Very simple backup script.
 Install virtualBox_guest_additions.
 
 # dolphin.sh
-Run dolphin as root with the alias "dp".
+Run dolphin as root on kde with the alias "dp".
