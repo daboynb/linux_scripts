@@ -91,3 +91,6 @@ Install virtualBox_guest_additions.
 
 # dolphin.sh
 Run dolphin as root on kde with the alias "dp".
+
+# stop_fsck.sh
+Stop fsck check at boot.
