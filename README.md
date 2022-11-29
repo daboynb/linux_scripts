@@ -95,5 +95,5 @@ Run dolphin as root on kde with the alias "dp".
 # stop_fsck.sh
 Stop fsck check at boot.
 
-# iommu.sh
-Disable iommu to fix errors like handling fault status reg 2.
+# inte_iommu.sh
+Disable iommu to fix errors like "handling fault status reg 2".
