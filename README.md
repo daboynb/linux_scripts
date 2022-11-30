@@ -95,5 +95,5 @@ Run dolphin as root on kde with the alias "dp".
 # stop_fsck.sh
 Stop fsck check at boot.
 
-# intel_iommu.sh
-Disable iommu to fix errors like "handling fault status reg 2".
+# nvme.sh
+Fix suspend/resume issues on nvme drives. Fix poweroff/reboot issues on nvme drives (about 8 seconds to power off). 
