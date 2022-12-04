@@ -97,3 +97,6 @@ Stop fsck check at boot.
 
 # nvme.sh
 Fix suspend/resume issues on nvme drives. 
+
+# xps_9550.sh
+Fix the issues (suspend/resume & reboot/shutdown) on dell xps 9550 after replacing the ssd with an nvme.
