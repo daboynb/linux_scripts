@@ -96,4 +96,4 @@ Run dolphin as root on kde with the alias "dp".
 Stop fsck check at boot.
 
 # nvme.sh
-Fix suspend/resume issues on nvme drives. Fix poweroff/reboot issues on nvme drives (about 8 seconds to power off). 
+Fix suspend/resume issues on nvme drives. 
