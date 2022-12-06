@@ -1,3 +1,4 @@
+#!/bin/bash
 # Display the lastest kernel installed
 ls -v /boot/vmlinuz-* | tail -n 1 > text 
 # Remove some words from the output
