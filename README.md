@@ -100,3 +100,6 @@ Fix suspend/resume issues on nvme drives.
 
 # xps_9550.sh
 Fix the issues (suspend/resume & reboot/shutdown) on dell xps 9550 after replacing the ssd with an nvme.
+
+# kernel_check.sh
+Check if the lastest kernel is already installed after an update.
