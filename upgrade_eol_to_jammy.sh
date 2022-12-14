@@ -3,6 +3,10 @@
 echo "WELCOME TO THE UBUNTU 21.04 AND 21.10 UPGRADE SCRIPT"
 echo "If the first fails, try with the second."
 
+# Disable all the external repos
+cd /etc/apt/sources.list.d && sudo bash -c 'for i in *.list; do mv ${i} ${i}.disabled; done' && cd /tmp
+
+# Grep codename
 codename=$(awk '/UBUNTU_CODENAME=/' /etc/os-release | sed 's/UBUNTU_CODENAME=//' | sed 's/[.]0/./')
 
 # Menu
