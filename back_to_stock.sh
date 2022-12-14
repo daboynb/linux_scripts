@@ -2,9 +2,8 @@
 # Detect os codename
 codename=$(awk '/UBUNTU_CODENAME=/' /etc/os-release | sed 's/UBUNTU_CODENAME=//' | sed 's/[.]0/./')
 
-# Disale all the external repos
-cd /etc/apt/sources.list.d && sudo bash -c 'for i in *.list; do mv ${i} ${i}.disabled; done' && cd /home/"$USER"
-
+# Disable all the external repos
+cd /etc/apt/sources.list.d && sudo bash -c 'for i in *.list; do mv ${i} ${i}.disabled; done' && cd /tmp
 # Replace sources.list  
 text="deb http://archive.ubuntu.com/ubuntu/ $codename main universe restricted multiverse
 deb-src http://archive.ubuntu.com/ubuntu/ $codename main universe restricted multiverse
