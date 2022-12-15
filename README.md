@@ -2,7 +2,7 @@
 Fix the time on dual boot
 
 # gnome_shell.sh
-Enable the right click on touchpad, the close,minimize,maximize buttons and sort the app grid alphabetically on gnome shell
+Enable the right click on touchpad, the close,minimize,maximize buttons on windows and sort the app grid alphabetically on gnome shell
 
 # 4k.sh
 Make grub bigger (4k screen)
