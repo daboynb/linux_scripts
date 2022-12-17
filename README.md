@@ -108,7 +108,6 @@ if [ $installed_kernel = $current ]; then</br>
     echo "You have the latest kernel already installed"</br>
 else</br>
   echo "You need to reboot to apply the new kernel"</br>
-  sudo /home/"$USER"/nvidia/nvidia.run --module-signing-secret-key=/home/"$USER"/nvidia/Nvidia.key --module-signing-public-key=/home/"$USER"/nvidia/Nvidia.der</br>
+  echo "Reboot and type sudo /home/"$USER"/nvidia/nvidia.run --module-signing-secret-key=/home/"$USER"/nvidia/Nvidia.key --module-signing-public-key=/home/"$USER"/nvidia/Nvidia.der " </br>
   fi
   </br>
-Automatize the nvidia drivers instalaltion, insert this script inside system_updater.sh.
