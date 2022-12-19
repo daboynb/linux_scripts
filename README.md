@@ -102,12 +102,4 @@ Fix suspend/resume issues on nvme drives.
 Fix the issues (suspend/resume & reboot/shutdown) on dell xps 9550 after replacing the ssd with an nvme.
 
 # kernel_check.sh
-Check if the latest kernel is already installed after an update.</br>
-Scenario :</br>
-if [ $installed_kernel = $current ]; then</br>
-    echo "You have the latest kernel already installed"</br>
-else</br>
-  echo "You need to reboot to apply the new kernel"</br>
-  echo "Reboot and type sudo /home/"$USER"/nvidia/nvidia.run --module-signing-secret-key=/home/"$USER"/nvidia/Nvidia.key --module-signing-public-key=/home/"$USER"/nvidia/Nvidia.der " </br>
-  fi
-  </br>
+Check if the latest kernel is already installed after an update.
