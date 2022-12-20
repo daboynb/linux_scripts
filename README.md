@@ -47,7 +47,7 @@ Change the colors of the window buttons like this. Need to reboot to apply globa
 <img width="621" alt="Cattura" src="https://user-images.githubusercontent.com/106079917/182578591-e1f66390-a5f7-4bd0-a995-71ee09f89091.PNG">
 
 # sign_vmware.sh
-Sign kernel module for secureboot on vmware.
+Sign kernel modules for secureboot on vmware.
 
 # ubuntu_boot_repair.sh
 Repair grub for ubuntu (chroot and grub-install). Tested on ubuntu 22.04.
@@ -106,3 +106,6 @@ Check if the latest kernel is already installed after an update.
 
 # grub_image.sh
 Add a background image to grub.(root is encrypted).
+
+# sign_virtualbox.sh
+Sign kernel modules for secureboot on virtualbox.

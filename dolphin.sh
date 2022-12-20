@@ -1,4 +1,11 @@
 #!/bin/bash
+# sudo check
+if [ `whoami` = root ];
+then
+    echo Please do not run this script as root or using sudo
+    return 1 2>/dev/null
+    exit 1
+fi
 # Variable with pkexec
 dolphin="pkexec env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY KDE_SESSION_VERSION=5 KDE_FULL_SESSION=true dolphin"
 # Create dolphin.sh

@@ -1,4 +1,11 @@
 #!/bin/bash
+# sudo check
+if [ `whoami` = root ];
+then
+    echo Please do not run this script as root or using sudo
+    return 1 2>/dev/null
+    exit 1
+fi
 # Variable
 text="button.titlebutton {
   min-height: 24px;

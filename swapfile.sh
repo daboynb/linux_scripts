@@ -1,7 +1,4 @@
 #!/bin/bash
-# Ask for sudo privileges
-[ "$UID" -eq 0 ] || exec sudo "$0" "$@"
-
 # Check requirements
 sudo dpkg -l | grep -qw util-linux || sudo apt-get install util-linux -y
 
