@@ -3,7 +3,7 @@
 mainmenu() {
     echo -ne "
 1) Create keys and import with mok 
-2) Install drivers
+2) Build kernel modules 
 0) Exit
 Choose an option:  "
     read -r ans
