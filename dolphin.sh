@@ -16,5 +16,4 @@ alias="alias dp="\""/home/$USER/.dolphin.sh"\"""
 # Add the alias to .bashrc
 echo "$alias" >> /home/"$USER"/.bashrc
 # Update .bashrc
-source /home/"$USER"/.bashrc
-echo "Done"
+echo "To apply run this command 👉 'source .bashrc' "

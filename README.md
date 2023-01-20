@@ -109,3 +109,6 @@ Add a background image to grub. (root encrypted for Debian 11)
 
 # sign_virtualbox.sh
 Sign kernel modules for secureboot on virtualbox.
+
+# cp_mv_progress_bar.sh
+Patch cp and mv to get a progress bar with the patch provided by https://github.com/jarun/advcpmv.
