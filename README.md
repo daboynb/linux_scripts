@@ -104,8 +104,8 @@ Fix the issues (suspend/resume & reboot/shutdown) on dell xps 9550 after replaci
 # kernel_check.sh
 Check if the latest kernel is already installed after an update.
 
-# grub_image.sh
-Add a background image to grub.(root is encrypted).
+# grub_image_debian.sh
+Add a background image to grub. (root encrypted for Debian 11)
 
 # sign_virtualbox.sh
 Sign kernel modules for secureboot on virtualbox.
