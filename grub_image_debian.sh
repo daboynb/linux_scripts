@@ -1,5 +1,7 @@
 #!/bin/bash
 # Add grub background image
+echo "make a backup of/boot/grub/grub.cfg"
+sucp cp /boot/grub/grub.cfg /boot/grub/grub.cfg.bak
 echo "Insert an image inside /boot/grub and name it splash0.png"
 read -p "Press enter when you have done"
 if [ -f /boot/grub/splash0.png ]  

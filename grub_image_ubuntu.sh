@@ -1,5 +1,7 @@
 #!/bin/bash
 # Add grub background image
+echo "make a backup of/boot/grub/grub.cfg"
+sucp cp /boot/grub/grub.cfg /boot/grub/grub.cfg.bak
 echo "Insert an image inside /boot/grub and name it splash0.png"
 read -p "Press enter when you have done"
 if [ -f /boot/grub/splash0.png ]  
@@ -11,6 +13,6 @@ if [ -f /boot/grub/splash0.png ]
  fi
 KEYWORD="### BEGIN /etc/grub.d/05_debian_theme ###";
 ESCAPED_KEYWORD=$(printf '%s\n' "$KEYWORD" | sed -e 's/[]\/$*.^[]/\\&/g');
-sed -i "/$ESCAPED_KEYWORD/a /grub/splash0.png" theme.cfg
+sed -i "/$ESCAPED_KEYWORD/a /grub/splash0.png" /boot/grub/grub.cfg
 sudo update-grub
 echo "done"
