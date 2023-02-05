@@ -1,5 +1,14 @@
 #!/bin/bash
 # Tested on 22.04 and 22.10
+
+# Sudo check
+if [ `whoami` = root ];
+then
+    echo Please do not run this script as root or using sudo
+    return 1 2>/dev/null
+    exit 1
+fi
+
 # Start
 sudo apt update
 
@@ -18,8 +27,7 @@ sudo snap remove --purge core20
 sudo systemctl stop snapd && sudo systemctl disable snapd
 
 # Purge snapd
-sudo apt purge -y snapd 
-sudo apt purge -y gnome-software-plugin-snap 
+sudo apt purge snapd -y
 
 # Prevent snap from being reinstalled 
 printf "Package: snapd\nPin: release a=*\nPin-Priority: -10" >> no-snap.pref 
@@ -45,9 +53,10 @@ sudo add-apt-repository ppa:mozillateam/ppa -y
 sudo apt update
 sudo apt install firefox -y
 
-echo "Update, clean the system"
+echo "Update and clean the system"
+
 # Remove snap folders
-rm -rf ~/snap
+rm -rf /home/"$USER"/snap
 sudo rm -rf /snap /var/snap /var/lib/snapd /var/cache/snapd /usr/lib/snapd
 
 # Update system
@@ -56,15 +65,39 @@ sudo apt upgrade -y --allow-downgrades
 sudo apt dist-upgrade -y
 sudo apt autoremove --purge -y
 
+# Variables
+flatpak_install="sudo apt install flatpak -y"
+flatpak_add_repo="sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo"
+gnome_software_install="sudo apt install gnome-software -y"
+gnome_software_plugin="sudo apt install gnome-software-plugin-flatpak -y"
+
 # Install flatpak
-echo "Installing flatpak"
-sudo apt install flatpak -y
-sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+while [ -z $prompt ];
+    do read -p "Install flatpak? (y/n): " choice;
+    case "$choice" in
+        y|Y ) fp="yes";$flatpak_install;$flatpak_add_repo;break;;
+        n|N ) fp="no";echo "skipping";break;;
+    esac;
+    done;
 
 # Install gnome-software center
-echo "Installing gnome-software center"
-sudo apt install gnome-software -y
-sudo apt install gnome-software-plugin-flatpak -y
+if [ $fp == "yes" ]; then
+    while [ -z $prompt ];
+    do read -p "Install gnome-software-center and flatpak plugin?: (y/n) " choice;
+    case "$choice" in
+        y|Y ) $gnome_software_install;$gnome_software_plugin;break;;
+        n|N ) echo "skipping";break;;
+    esac;
+    done;
+else
+    while [ -z $prompt ];
+    do read -p "Install gnome software center?: (y/n) " choice;
+    case "$choice" in
+        y|Y ) $gnome_software_install;break;;
+        n|N ) echo "skipping";break;;
+    esac;
+    done;
+fi
 
 echo "Script completed successfully"
 
