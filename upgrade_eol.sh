@@ -3,9 +3,9 @@
 # Disable all the external repos
 if [ -f /etc/apt/sources.list.d/*.list ]  
 then
-     echo ""
+     sudo bash -c 'for i in /etc/apt/sources.list.d/*.list; do mv ${i} ${i}.disabled; done'
 else
-sudo bash -c 'for i in /etc/apt/sources.list.d/*.list; do mv ${i} ${i}.disabled; done'
+     echo "skipping"
 fi
 
 # Menu
