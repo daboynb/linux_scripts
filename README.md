@@ -117,4 +117,4 @@ Patch cp and mv to get a progress bar with the patch provided by https://github.
 Add a background image to grub. (root encrypted for Ubuntu).
 
 # upgrade_eol.sh
-Upgrade old versions of ubuntu.
+Upgrade the lts versions of ubuntu from 12.04 to 22.04.

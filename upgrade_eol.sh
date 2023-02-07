@@ -1,10 +1,12 @@
 #!/bin/bash
 
 # Disable all the external repos
+if [ -f /etc/apt/sources.list.d/*.list ]  
+then
+     echo ""
+else
 sudo bash -c 'for i in /etc/apt/sources.list.d/*.list; do mv ${i} ${i}.disabled; done'
-
-# Grep codename
-codename=$(awk '/UBUNTU_CODENAME=/' /etc/os-release | sed 's/UBUNTU_CODENAME=//' | sed 's/[.]0/./')
+fi
 
 # Menu
 mainmenu() {
@@ -20,17 +22,11 @@ Choose an option:  "
     case $ans in
 
     1)
-        # Detect precise, change repos to old-releases.ubuntu.com 
-        if cat /etc/os-release | grep precise ; then
-        echo "You're on precise"
+        # precise, change repos 
         text="deb http://old-releases.ubuntu.com/ubuntu/ precise main restricted universe multiverse
         deb http://old-releases.ubuntu.com/ubuntu/ precise-updates main restricted universe multiverse
         deb http://old-releases.ubuntu.com/ubuntu/ precise-security main restricted universe multiverse"
         sudo echo "$text" | sudo tee /etc/apt/sources.list
-        else
-        echo "You are on precise."
-        mainmenu
-        fi
 
         # Prerequisites
         sudo apt-get update
@@ -39,23 +35,22 @@ Choose an option:  "
         sudo apt-get dist-upgrade -y 
 
         # Download and run the ubuntu upgrade tool
+        mkdir trusty
+        cd trusty
         wget http://archive.ubuntu.com/ubuntu/dists/trusty-updates/main/dist-upgrader-all/current/trusty.tar.gz
         tar -xaf trusty.tar.gz 
         sudo ./trusty --frontend=DistUpgradeViewText
         ;;
         
     2)
-        # Detect trusty, change repos to old-releases.ubuntu.com 
-        if [ $codename == trusty ]; then
-        echo "You're on trusty"
-        text="deb http://old-releases.ubuntu.com/ubuntu/ $codename main restricted universe multiverse
-        deb http://old-releases.ubuntu.com/ubuntu/ $codename-updates main restricted universe multiverse
-        deb http://old-releases.ubuntu.com/ubuntu/ $codename-security main restricted universe multiverse"
+        # trusty, change repos 
+        text="deb http://archive.ubuntu.com/ubuntu/ trusty main universe restricted multiverse
+        deb-src http://archive.ubuntu.com/ubuntu/ trusty main universe restricted multiverse
+        deb http://security.ubuntu.com/ubuntu trusty-security main universe restricted multiverse
+        deb-src http://security.ubuntu.com/ubuntu trusty-security main universe restricted multiverse
+        deb http://archive.ubuntu.com/ubuntu/ trusty-updates main universe restricted multiverse
+        deb-src http://archive.ubuntu.com/ubuntu/ trusty-updates main universe restricted multiverse"
         sudo echo "$text" | sudo tee /etc/apt/sources.list
-        else
-        echo "You are on $codename."
-        mainmenu
-        fi
 
         # Prerequisites
         sudo apt-get update
@@ -64,23 +59,22 @@ Choose an option:  "
         sudo apt-get dist-upgrade -y 
 
         # Download and run the ubuntu upgrade tool
+        mkdir xenial
+        cd xenial
         wget http://archive.ubuntu.com/ubuntu/dists/xenial-updates/main/dist-upgrader-all/current/xenial.tar.gz
         tar -xaf xenial.tar.gz 
         sudo ./xenial --frontend=DistUpgradeViewText
         ;;
     
     3)   
-        # Detect xenial, change repos to old-releases.ubuntu.com 
-        if [ $codename == xenial ]; then
-        echo "You're on xenial"
-        text="deb http://old-releases.ubuntu.com/ubuntu/ $codename main restricted universe multiverse
-        deb http://old-releases.ubuntu.com/ubuntu/ $codename-updates main restricted universe multiverse
-        deb http://old-releases.ubuntu.com/ubuntu/ $codename-security main restricted universe multiverse"
+        # xenial, change repos 
+        text="deb http://archive.ubuntu.com/ubuntu/ xenial main universe restricted multiverse
+        deb-src http://archive.ubuntu.com/ubuntu/ xenial main universe restricted multiverse
+        deb http://security.ubuntu.com/ubuntu xenial-security main universe restricted multiverse
+        deb-src http://security.ubuntu.com/ubuntu xenial-security main universe restricted multiverse
+        deb http://archive.ubuntu.com/ubuntu/ xenial-updates main universe restricted multiverse
+        deb-src http://archive.ubuntu.com/ubuntu/ xenial-updates main universe restricted multiverse"
         sudo echo "$text" | sudo tee /etc/apt/sources.list
-        else
-        echo "You are on $codename."
-        mainmenu
-        fi
 
         # Prerequisites
         sudo apt-get update
@@ -89,22 +83,21 @@ Choose an option:  "
         sudo apt-get dist-upgrade -y 
 
         # Download and run the ubuntu upgrade tool
+        mkdir bionic
+        cd bionic
         wget http://archive.ubuntu.com/ubuntu/dists/bionic-updates/main/dist-upgrader-all/current/bionic.tar.gz
         tar -xaf bionic.tar.gz 
         sudo ./bionic --frontend=DistUpgradeViewText
         ;;
     4)      
-        # Detect bionic, change repos to old-releases.ubuntu.com 
-        if [ $codename == bionic ]; then
-        echo "You're on bionic"
-        text="deb http://old-releases.ubuntu.com/ubuntu/ $codename main restricted universe multiverse
-        deb http://old-releases.ubuntu.com/ubuntu/ $codename-updates main restricted universe multiverse
-        deb http://old-releases.ubuntu.com/ubuntu/ $codename-security main restricted universe multiverse"
+        # bionic, change repos 
+        text="deb http://archive.ubuntu.com/ubuntu/ bionic main universe restricted multiverse
+        deb-src http://archive.ubuntu.com/ubuntu/ bionic main universe restricted multiverse
+        deb http://security.ubuntu.com/ubuntu bionic-security main universe restricted multiverse
+        deb-src http://security.ubuntu.com/ubuntu bionic-security main universe restricted multiverse
+        deb http://archive.ubuntu.com/ubuntu/ bionic-updates main universe restricted multiverse
+        deb-src http://archive.ubuntu.com/ubuntu/ bionic-updates main universe restricted multiverse"
         sudo echo "$text" | sudo tee /etc/apt/sources.list
-        else
-        echo "You are on $codename."
-        mainmenu
-        fi
 
         # Prerequisites
         sudo apt-get update
@@ -113,22 +106,21 @@ Choose an option:  "
         sudo apt-get dist-upgrade -y 
 
         # Download and run the ubuntu upgrade tool
+        mkdir focal
+        cd focal
         wget http://archive.ubuntu.com/ubuntu/dists/focal-updates/main/dist-upgrader-all/current/focal.tar.gz
         tar -xaf focal.tar.gz 
         sudo ./focal --frontend=DistUpgradeViewText
         ;;
     5)
-        # Detect focal, change repos to old-releases.ubuntu.com 
-        if [ $codename == focal ]; then
-        echo "You're on focal"
-        text="deb http://old-releases.ubuntu.com/ubuntu/ $codename main restricted universe multiverse
-        deb http://old-releases.ubuntu.com/ubuntu/ $codename-updates main restricted universe multiverse
-        deb http://old-releases.ubuntu.com/ubuntu/ $codename-security main restricted universe multiverse"
+        # focal, change repos 
+        text="deb http://archive.ubuntu.com/ubuntu/ focal main universe restricted multiverse
+        deb-src http://archive.ubuntu.com/ubuntu/ focal main universe restricted multiverse
+        deb http://security.ubuntu.com/ubuntu focal-security main universe restricted multiverse
+        deb-src http://security.ubuntu.com/ubuntu focal-security main universe restricted multiverse
+        deb http://archive.ubuntu.com/ubuntu/ focal-updates main universe restricted multiverse
+        deb-src http://archive.ubuntu.com/ubuntu/ focal-updates main universe restricted multiversee"
         sudo echo "$text" | sudo tee /etc/apt/sources.list
-        else
-        echo "You are on $codename."
-        mainmenu
-        fi
 
         # Prerequisites
         sudo apt-get update
@@ -137,6 +129,8 @@ Choose an option:  "
         sudo apt-get dist-upgrade -y 
 
         # Download and run the ubuntu upgrade tool
+        mkdir jammy
+        cd jammy
         wget http://archive.ubuntu.com/ubuntu/dists/jammy-updates/main/dist-upgrader-all/current/jammy.tar.gz
         tar -xaf jammy.tar.gz 
         sudo ./jammy --frontend=DistUpgradeViewText
