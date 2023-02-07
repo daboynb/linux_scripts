@@ -114,4 +114,7 @@ Sign kernel modules for secureboot on virtualbox.
 Patch cp and mv to get a progress bar with the patch provided by https://github.com/jarun/advcpmv.
 
 # grub_image_ubuntu.sh
-Add a background image to grub. (root encrypted for Ubuntu)
+Add a background image to grub. (root encrypted for Ubuntu).
+
+# upgrade_eol.sh
+Upgrade old versions of ubuntu.
