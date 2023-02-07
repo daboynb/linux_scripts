@@ -21,14 +21,14 @@ Choose an option:  "
 
     1)
         # Detect precise, change repos to old-releases.ubuntu.com 
-        if [ $codename == precise ]; then
+        if cat /etc/os-release | grep precise ; then
         echo "You're on precise"
-        text="deb http://old-releases.ubuntu.com/ubuntu/ $codename main restricted universe multiverse
-        deb http://old-releases.ubuntu.com/ubuntu/ $codename-updates main restricted universe multiverse
-        deb http://old-releases.ubuntu.com/ubuntu/ $codename-security main restricted universe multiverse"
+        text="deb http://old-releases.ubuntu.com/ubuntu/ precise main restricted universe multiverse
+        deb http://old-releases.ubuntu.com/ubuntu/ precise-updates main restricted universe multiverse
+        deb http://old-releases.ubuntu.com/ubuntu/ precise-security main restricted universe multiverse"
         sudo echo "$text" | sudo tee /etc/apt/sources.list
         else
-        echo "You are on $codename."
+        echo "You are on precise."
         mainmenu
         fi
 
