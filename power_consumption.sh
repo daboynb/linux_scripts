@@ -3,7 +3,7 @@
 echo ""
 echo -e "\033[0;31m
 PLEASE NOTE THAT THIS SCRIPT WILL CALCULATE THE MONTHLY COST BASED ON THE PROVIDED POWER CONSUMPTION.
-INTEGER OR NUMBER WITH THE POINT ONLY! ES. 21 OR 21.4
+Decimals should be preceded by a point, not a comma es. 21.4 not 21,4
 \033[0m"
 echo ""
 
