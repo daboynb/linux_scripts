@@ -3,7 +3,7 @@
 echo ""
 echo -e "\033[0;31m
 PLEASE NOTE THAT THIS SCRIPT WILL CALCULATE THE MONTHLY COST BASED ON THE PROVIDED POWER CONSUMPTION.
-Decimals should be preceded by a point, not a comma es. 21.4 not 21,4
+Decimals should be preceded by a point or a comma es. ' 21.4 or 21,4 '
 \033[0m"
 echo ""
 
@@ -11,11 +11,12 @@ echo ""
 ###################################################################################################
 
 # Regex to exclude all except for " 0-9 and . " from the variable
-pattern='^[0-9]+([.][0-9]+)?$'
+pattern='^[0-9]+([,.][0-9]+)?$'
 
 # Check if the number provided is good
 while true; do
   read -p "Enter the watts: " w
+  w=${w/,/.}
   if [[ $w =~ $pattern ]]; then
     break
   else
@@ -37,6 +38,7 @@ echo "Kilowatts: $result_w"
 # Check if the number provided is good
 while true; do
   read -p "Hours of uptime in a day: " uptime
+  uptime=${uptime/,/.}
   if [[ $uptime =~ $pattern ]]; then
     break
   else
@@ -67,11 +69,12 @@ echo "Kw/year: $result_kw365"
 # Check if the number provided is good
 while true; do
     read -p "Price of kw/h? " kw_hour
-  if [[ $kw_hour =~ $pattern ]]; then
-    break
-  else
-    echo "Invalid input. Please enter a number."
-  fi
+    kw_hour=${kw_hour/,/.}
+    if [[ $kw_hour =~ $pattern ]]; then
+     break
+    else
+     echo "Invalid input. Please enter a number."
+    fi
 done
 
 kw_costs_365=$(echo "scale=2; ($kw_hour * $result_kw365 + 0.005) / 1" | bc)
