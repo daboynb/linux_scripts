@@ -125,3 +125,6 @@ Upgrade the lts versions of ubuntu from 12.04 to 22.04.
 
 # power_consumption.sh
 This script will calculate the monthly cost based on the provided power consumption.
+
+# fix_double_cursors.sh
+Fix two cursors when the lid is closed. Replace the touchpad name with yours using xinput list.
