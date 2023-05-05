@@ -128,3 +128,6 @@ This script will calculate the monthly cost based on the provided power consumpt
 
 # fix_double_cursors.sh
 Fix two cursors when the lid is closed. Replace the touchpad name with yours using xinput list.
+
+# woeusb-ng.sh
+Install woeusb-ng. (Debian, arch and fedora) (https://github.com/WoeUSB/WoeUSB-ng)
