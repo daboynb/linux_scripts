@@ -10,6 +10,14 @@ Choose an option:  "
     case $ans in
 
     1)
+            if [ -f /var/lib/shim-signed/mok/virtualbox.priv ]; then
+                sudo rm /var/lib/shim-signed/mok/virtualbox.priv
+            fi
+
+            if [ -f /var/lib/shim-signed/mok/virtualbox.der ]; then
+                sudo rm /var/lib/shim-signed/mok/virtualbox.der
+            fi
+            
             sudo mkdir -p /var/lib/shim-signed/mok
             sudo openssl req -new -x509 -newkey rsa:2048 -keyout /var/lib/shim-signed/mok/virtualbox.priv -outform DER -out /var/lib/shim-signed/mok/virtualbox.der -nodes -days 36500 -subj "/CN=virtualbox/"
             sudo mokutil --import /var/lib/shim-signed/mok/virtualbox.der           
