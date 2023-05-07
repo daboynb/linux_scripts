@@ -59,7 +59,7 @@ check_arch_dependencies() {
 
 check_installation_status() {
     if [ $? -eq 0 ]; then
-        if $1 -eq 1; then
+        if [ $1 -eq 1 ]; then
             echo "Installation successful."
         fi
         return 0
