@@ -9,6 +9,12 @@ then
     exit 1
 fi
 
+# Check for dpkg lock
+while sudo fuser /var/{lib/{dpkg,apt/lists},cache/apt/archives}/lock >/dev/null 2>&1; do
+sleep 1
+echo "Waiting... dpkg lock"
+done
+
 # Start
 sudo apt update
 
@@ -65,39 +71,55 @@ sudo apt upgrade -y --allow-downgrades
 sudo apt dist-upgrade -y
 sudo apt autoremove --purge -y
 
-# Variables
-flatpak_install="sudo apt install flatpak -y"
-flatpak_add_repo="sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo"
-gnome_software_install="sudo apt install gnome-software -y"
-gnome_software_plugin="sudo apt install gnome-software-plugin-flatpak -y"
+# Functions
+flatpak_only() {
+    sudo apt install flatpak -y
+    sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+}
 
-# Install flatpak
-while [ -z $prompt ];
-    do read -p "Install flatpak? (y/n): " choice;
-    case "$choice" in
-        y|Y ) fp="yes";$flatpak_install;$flatpak_add_repo;break;;
-        n|N ) fp="no";echo "skipping";break;;
-    esac;
-    done;
+flatpak_and_software_center() {
+    sudo apt install flatpak -y
+    sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+    sudo apt install gnome-software -y
+    sudo apt install gnome-software-plugin-flatpak -y
+}
 
-# Install gnome-software center
-if [ $fp == "yes" ]; then
-    while [ -z $prompt ];
-    do read -p "Install gnome-software-center and flatpak plugin?: (y/n) " choice;
-    case "$choice" in
-        y|Y ) $gnome_software_install;$gnome_software_plugin;break;;
-        n|N ) echo "skipping";break;;
-    esac;
-    done;
-else
-    while [ -z $prompt ];
-    do read -p "Install gnome software center?: (y/n) " choice;
-    case "$choice" in
-        y|Y ) $gnome_software_install;break;;
-        n|N ) echo "skipping";break;;
-    esac;
-    done;
-fi
+software_center_only() {
+    sudo apt install gnome-software -y
+}
+
+# Menu
+mainmenu() {
+    echo -ne "
+1) Install flatpak 
+2) Install flatpak and the gnome software center
+3) Install the gnome software center without flatpak
+0) Exit
+Choose an option:  "
+    read -r ans
+    case $ans in
+
+    1)     
+            flatpak_only
+        ;;
+    2)
+            flatpak_and_software_center
+        ;;
+    3)
+            software_center_only
+        ;;
+    0)      
+            echo "Bye bye."
+            exit 0
+            ;;
+    *)
+        echo "Wrong option."
+        mainmenu
+        ;;
+    esac
+}
+
+mainmenu
 
 echo "Script completed successfully"
 
