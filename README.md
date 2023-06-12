@@ -131,3 +131,6 @@ Fix two cursors when the lid is closed. Replace the touchpad name with yours usi
 
 # woeusb-ng.sh
 Install woeusb-ng. (Debian, arch and fedora) (https://github.com/WoeUSB/WoeUSB-ng)
+
+# raspberry.sh
+Post installation script that I made for my raspberry.
