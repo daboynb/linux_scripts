@@ -23,6 +23,7 @@ sudo apt autoremove --purge -y
 
 # Enable firewall and allow only port 22
 echo "Enable firewall"
+sudo apt install ufw -y
 sudo ufw default deny incoming
 sudo ufw default allow outgoing
 sudo ufw allow 22
