@@ -57,8 +57,8 @@ Sign kernel modules for secureboot on vmware.
 Repair grub for ubuntu (chroot and grub-install). Tested on ubuntu 22.04.
 
 # enable_backspace.sh
-Set "Backspace" to Go Back in Nautilus.
-Thanks to https://github.com/riclc/nautilus_backspace.
+Set "Backspace" to Go Back in Nautilus. For gnome 43 and 44.
+Thanks to https://github.com/jesusferm/Nautilus-43-BackSpace
 
 # system_updater.sh
 Update the system with apt, then check updates for flatpak, snap and fwupd.
