@@ -30,6 +30,9 @@ sudo ufw allow 22
 sudo ufw enable
 echo "Completed"
 
+# Install tmux
+sudo apt install tmux -y
+
 # Add logo and infos when you log with ssh
 SCRIPT_CONTENT=$(cat << 'EOF'
 echo "$(tput setaf 2)
@@ -55,5 +58,18 @@ EOF
 
 echo "$SCRIPT_CONTENT" >> "/home/$USER/.bashrc"
 
+# Add tmux session when you log with ssh
+SCRIPT_CONTENT=$(cat << 'EOF'
+if [[ $- =~ i ]] && [[ -z "$TMUX" ]] && [[ -n "$SSH_TTY" ]]; then
+  tmux attach-session -t ssh_tmux || tmux new-session -s ssh_tmux
+fi
+EOF
+)
+
+echo "$SCRIPT_CONTENT" >> "/home/$USER/.bashrc"
+
 # Disable motd
 touch "$HOME/.hushlogin"
+
+# Update .bashrc
+echo "To apply run this command 👉 'source .bashrc' "
