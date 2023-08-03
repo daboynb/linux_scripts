@@ -33,6 +33,11 @@ echo "Completed"
 # Install tmux
 sudo apt install tmux -y
 
+# Install fail2ban
+sudo apt-get install fail2ban -y
+sudo cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local
+sudo service fail2ban restart
+
 # Add logo and infos when you log with ssh
 SCRIPT_CONTENT=$(cat << 'EOF'
 echo "$(tput setaf 2)
