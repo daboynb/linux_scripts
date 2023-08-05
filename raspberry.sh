@@ -38,6 +38,14 @@ sudo apt-get install fail2ban -y
 sudo cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local
 sudo service fail2ban restart
 
+# Unattended upgrades
+sudo apt install unattended-upgrades -y
+sudo systemctl enable unattended-upgrades
+sudo systemctl start unattended-upgrades
+
+sudo sed -i 's~^//\(.*"origin=Debian,codename=${distro_codename}-proposed-updates";\)~\1~' /etc/apt/apt.conf.d/50unattended-upgrades
+sudo sed -i 's~^//\(.*"origin=Debian,codename=${distro_codename}-updates";\)~\1~' /etc/apt/apt.conf.d/50unattended-upgrades
+
 # Add logo and infos when you log with ssh
 SCRIPT_CONTENT=$(cat << 'EOF'
 echo "$(tput setaf 2)
