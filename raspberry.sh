@@ -46,6 +46,11 @@ sudo systemctl start unattended-upgrades
 sudo sed -i 's~^//\(.*"origin=Debian,codename=${distro_codename}-proposed-updates";\)~\1~' /etc/apt/apt.conf.d/50unattended-upgrades
 sudo sed -i 's~^//\(.*"origin=Debian,codename=${distro_codename}-updates";\)~\1~' /etc/apt/apt.conf.d/50unattended-upgrades
 
+text="APT::Periodic::Update-Package-Lists "1";
+APT::Periodic::Unattended-Upgrade "1";
+APT::Periodic::AutocleanInterval "1";"
+sudo echo "$text" | sudo tee /etc/apt/apt.conf.d/20auto-upgrades
+
 # Add logo and infos when you log with ssh
 SCRIPT_CONTENT=$(cat << 'EOF'
 echo "$(tput setaf 2)
