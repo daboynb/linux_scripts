@@ -43,13 +43,17 @@ sudo apt install unattended-upgrades -y
 sudo systemctl enable unattended-upgrades
 sudo systemctl start unattended-upgrades
 
+# Configure settings
 sudo sed -i 's~^//\(.*"origin=Debian,codename=${distro_codename}-proposed-updates";\)~\1~' /etc/apt/apt.conf.d/50unattended-upgrades
 sudo sed -i 's~^//\(.*"origin=Debian,codename=${distro_codename}-updates";\)~\1~' /etc/apt/apt.conf.d/50unattended-upgrades
-
 text="APT::Periodic::Update-Package-Lists "1";
 APT::Periodic::Unattended-Upgrade "1";
 APT::Periodic::AutocleanInterval "1";"
 sudo echo "$text" | sudo tee /etc/apt/apt.conf.d/20auto-upgrades
+
+# Run every 4 hour 
+# https://unix.stackexchange.com/a/295471
+sudo bash -c 'echo "0 0-23/4 * * * root sleep $(( $RANDOM % 14400 ));PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin unattended-upgrade" >> /etc/cron.d/unattended-upgrade' 
 
 # Add logo and infos when you log with ssh
 SCRIPT_CONTENT=$(cat << 'EOF'
