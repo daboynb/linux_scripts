@@ -32,6 +32,7 @@ echo "Completed"
 
 # Install tmux
 sudo apt install tmux -y
+echo "set -g mouse on" > .tmux.comf
 
 # Install fail2ban
 sudo apt-get install fail2ban -y
