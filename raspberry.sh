@@ -28,7 +28,6 @@ sudo ufw default deny incoming
 sudo ufw default allow outgoing
 sudo ufw allow 22
 sudo ufw enable
-echo "Completed"
 
 # Install tmux
 sudo apt install tmux -y
@@ -40,22 +39,32 @@ sudo cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local
 sudo wget https://raw.githubusercontent.com/daboynb/linux_scripts/main/jail.local -O /etc/fail2ban/jail.local
 sudo service fail2ban restart
 
-# Unattended upgrades
-sudo apt install unattended-upgrades -y
-sudo systemctl enable unattended-upgrades
-sudo systemctl start unattended-upgrades
+# Keep the pi updated
+update_script="$HOME/update.sh"
 
-# Configure settings
-sudo sed -i 's~^//\(.*"origin=Debian,codename=${distro_codename}-proposed-updates";\)~\1~' /etc/apt/apt.conf.d/50unattended-upgrades
-sudo sed -i 's~^//\(.*"origin=Debian,codename=${distro_codename}-updates";\)~\1~' /etc/apt/apt.conf.d/50unattended-upgrades
-text="APT::Periodic::Update-Package-Lists "1";
-APT::Periodic::Unattended-Upgrade "1";
-APT::Periodic::AutocleanInterval "1";"
-sudo echo "$text" | sudo tee /etc/apt/apt.conf.d/20auto-upgrades
+create_update_script() {
+cat << EOF > ${update_script}
+#!/bin/bash
 
-# Run every 4 hour 
-# https://unix.stackexchange.com/a/295471
-sudo bash -c 'echo "0 0-23/4 * * * root sleep $(( $RANDOM % 14400 ));PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin unattended-upgrade" >> /etc/cron.d/unattended-upgrade' 
+# Check for dpkg lock
+while sudo fuser /var/{lib/{dpkg,apt/lists},cache/apt/archives}/lock >/dev/null 2>&1; do
+sleep 1
+echo "Waiting... dpkg lock"
+done
+
+# Start the system upgrade
+echo "Updating system"
+sudo apt update
+sudo apt upgrade -y
+sudo apt dist-upgrade -y
+EOF
+}
+
+create_update_script
+
+chmod +x $update_script
+(crontab -l ; echo "0 */6 * * * $HOME/update.sh") | crontab -
+sudo systemctl restart cron
 
 # Add logo and infos when you log with ssh
 SCRIPT_CONTENT=$(cat << 'EOF'
