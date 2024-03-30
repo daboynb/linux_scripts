@@ -107,3 +107,14 @@ touch "$HOME/.hushlogin"
 
 # Update .bashrc
 echo "To apply run this command 👉 'source .bashrc' "
+
+# Install docker
+curl -sSL https://get.docker.com | sh
+sudo usermod -aG docker $USER
+
+# Portainer
+sudo docker pull portainer/portainer-ce:latest
+sudo docker run -d -p 9000:9000 --name=portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce:latest
+
+# Argon case
+# curl https://download.argon40.com/argon1.sh | bash
