@@ -89,7 +89,7 @@ echo "$(tput setaf 4)RAM Usage: Used: ${used_mem} MB / Free: $((total_mem - used
 EOF
 )
 
-echo "$SCRIPT_CONTENT" >> "/home/$USER/.bashrc"
+echo "$SCRIPT_CONTENT" >> "/$HOME/.bashrc"
 
 # Add tmux session when you log with ssh
 # https://stackoverflow.com/a/40192494/19680438
@@ -100,7 +100,7 @@ fi
 EOF
 )
 
-echo "$SCRIPT_CONTENT" >> "/home/$USER/.bashrc"
+echo "$SCRIPT_CONTENT" >> "/$HOME/.bashrc"
 
 # Disable motd
 touch "$HOME/.hushlogin"
