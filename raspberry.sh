@@ -37,6 +37,7 @@ echo "set -g terminal-overrides 'xterm*:smcup@:rmcup@'" > .tmux.comf
 # Install fail2ban
 sudo apt-get install fail2ban -y
 sudo cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local
+sudo wget https://raw.githubusercontent.com/daboynb/linux_scripts/main/jail.local -O /etc/fail2ban/jail.local
 sudo service fail2ban restart
 
 # Unattended upgrades
