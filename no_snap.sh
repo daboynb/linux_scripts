@@ -1,5 +1,4 @@
 #!/bin/bash
-# Tested on 22.04 and 22.10
 
 # Sudo check
 if [ `whoami` = root ];
@@ -21,13 +20,24 @@ sudo apt update
 echo "Removing snap...This will take a while"
 
 # Uninstall snap packages
-sudo snap remove --purge firefox
-sudo snap remove --purge snap-store
-sudo snap remove --purge gnome-3-38-2004
-sudo snap remove --purge gtk-common-themes
-sudo snap remove --purge snapd-desktop-integration
-sudo snap remove --purge bare
-sudo snap remove --purge core20
+while true; do
+    snap_list_output=$(snap list)
+
+    # Check if the output of `snap list
+    if [ -z "$snap_list_output" ]; then
+        echo "No snaps left."
+        break
+    fi
+
+    # Extract the snap names 
+    snap_names=($(echo "$snap_list_output" | awk 'NR>1 {print $1}'))
+
+    for snap_name in "${snap_names[@]}"
+    do
+        pgrep -f "$snap_name" >/dev/null
+        sudo snap remove --purge "$snap_name" >/dev/null
+    done
+done
 
 # Stop the daemon and disable it
 sudo systemctl stop snapd && sudo systemctl disable snapd
@@ -70,56 +80,6 @@ sudo apt update
 sudo apt upgrade -y --allow-downgrades
 sudo apt dist-upgrade -y
 sudo apt autoremove --purge -y
-
-# Functions
-flatpak_only() {
-    sudo apt install flatpak -y
-    sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-}
-
-flatpak_and_software_center() {
-    sudo apt install flatpak -y
-    sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-    sudo apt install gnome-software -y
-    sudo apt install gnome-software-plugin-flatpak -y
-}
-
-software_center_only() {
-    sudo apt install gnome-software -y
-}
-
-# Menu
-mainmenu() {
-    echo -ne "
-1) Install flatpak 
-2) Install flatpak and the gnome software center
-3) Install the gnome software center without flatpak
-0) Exit
-Choose an option:  "
-    read -r ans
-    case $ans in
-
-    1)     
-            flatpak_only
-        ;;
-    2)
-            flatpak_and_software_center
-        ;;
-    3)
-            software_center_only
-        ;;
-    0)      
-            echo "Bye bye."
-            exit 0
-            ;;
-    *)
-        echo "Wrong option."
-        mainmenu
-        ;;
-    esac
-}
-
-mainmenu
 
 echo "Script completed successfully"
 
