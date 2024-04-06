@@ -40,12 +40,7 @@ fi
 sudo sed -i 's/continue/pass/g' /usr/lib/python3/dist-packages/UpdateManager/Core/MetaRelease.py
 
 # Disable all the external repos
-if [ -f /etc/apt/sources.list.d/*.list ]  
-then
-     sudo bash -c 'for i in /etc/apt/sources.list.d/*.list; do mv ${i} ${i}.disabled; done'
-else
-     echo "Skipping"
-fi
+sudo bash -c 'for i in /etc/apt/sources.list.d/*.list; do mv ${i} ${i}.disabled; done'
 
 # Grep codename
 codename=$(awk '/UBUNTU_CODENAME=/' /etc/os-release | sed 's/UBUNTU_CODENAME=//' | sed 's/[.]0/./')
