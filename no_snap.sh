@@ -23,7 +23,7 @@ echo "Removing snap...This will take a while"
 while true; do
     snap_list_output=$(snap list)
 
-    # Check if the output of `snap list
+    # Check the output of snap list
     if [ -z "$snap_list_output" ]; then
         echo "No snaps left."
         break
