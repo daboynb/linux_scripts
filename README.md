@@ -121,7 +121,7 @@ Patch cp and mv to get a progress bar with the patch provided by https://github.
 Add a background image to grub. (root encrypted for Ubuntu).
 
 # upgrade_ubuntu_versions.sh
-Upgrade the lts versions of ubuntu from 12.04 to 22.04.
+Upgrade your ubuntu version.
 
 # power_consumption.sh
 This script will calculate the monthly cost based on the provided power consumption.
