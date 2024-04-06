@@ -34,7 +34,7 @@ while true; do
 
     for snap_name in "${snap_names[@]}"
     do
-        pgrep -f "$snap_name" >/dev/null 2>&1
+        sudo killall "$snap_name" >/dev/null 2>&1
         sudo snap remove --purge "$snap_name" >/dev/null 2>&1
     done
 done
@@ -50,8 +50,15 @@ printf "Package: snapd\nPin: release a=*\nPin-Priority: -10" >> no-snap.pref
 sudo mv no-snap.pref /etc/apt/preferences.d/
 sudo chown root:root /etc/apt/preferences.d/no-snap.pref
 
-# Done
-echo "Snap removed"
+# Remove snap folders
+rm -rf /home/"$USER"/snap
+sudo rm -rf /snap /var/snap /var/lib/snapd /var/cache/snapd /usr/lib/snapd
+
+# Update system
+sudo apt update
+sudo apt upgrade -y --allow-downgrades
+sudo apt dist-upgrade -y
+sudo apt autoremove --purge -y
 
 # Configure firefox to be installed only from the ppa 
 echo "Setting firefox preferences"
@@ -68,18 +75,6 @@ echo "Installing standard firefox"
 sudo add-apt-repository ppa:mozillateam/ppa -y
 sudo apt update
 sudo apt install firefox -y
-
-echo "Update and clean the system"
-
-# Remove snap folders
-rm -rf /home/"$USER"/snap
-sudo rm -rf /snap /var/snap /var/lib/snapd /var/cache/snapd /usr/lib/snapd
-
-# Update system
-sudo apt update
-sudo apt upgrade -y --allow-downgrades
-sudo apt dist-upgrade -y
-sudo apt autoremove --purge -y
 
 echo "Script completed successfully"
 
