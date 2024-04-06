@@ -34,8 +34,8 @@ while true; do
 
     for snap_name in "${snap_names[@]}"
     do
-        pgrep -f "$snap_name" >/dev/null
-        sudo snap remove --purge "$snap_name" >/dev/null
+        pgrep -f "$snap_name" >/dev/null 2>&1
+        sudo snap remove --purge "$snap_name" >/dev/null 2>&1
     done
 done
 
