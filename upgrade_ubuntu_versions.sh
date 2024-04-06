@@ -22,6 +22,20 @@ apt_update(){
     fi
 }
 
+echo "Which release should 'do-release-upgrade' check?"
+echo "1. Non-LTS"
+echo "2. LTS"
+read -p "Enter your choice (1 or 2): " choice
+
+if [ "$choice" == "1" ]; then
+    sudo sed -i 's/Prompt=.*/Prompt=normal/g' /etc/update-manager/release-upgrades
+elif [ "$choice" == "2" ]; then
+    sudo sed -i 's/Prompt=.*/Prompt=lts/g' /etc/update-manager/release-upgrades
+else
+    echo "Invalid choice. Exiting."
+    exit 1
+fi
+
 # Bypass "An upgrade from 'xxx' to 'xxx' is not supported with this tool" error
 sudo sed -i 's/continue/pass/g' /usr/lib/python3/dist-packages/UpdateManager/Core/MetaRelease.py
 
