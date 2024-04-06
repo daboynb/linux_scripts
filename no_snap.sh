@@ -60,21 +60,12 @@ sudo apt upgrade -y --allow-downgrades
 sudo apt dist-upgrade -y
 sudo apt autoremove --purge -y
 
-# Configure firefox to be installed only from the ppa 
-echo "Setting firefox preferences"
-printf "Package: *\nPin: release o=LP-PPA-mozillateam\nPin-Priority: 1001" >> mozilla-firefox 
-sudo mv mozilla-firefox /etc/apt/preferences.d/mozilla-firefox
-sudo chown root:root /etc/apt/preferences.d/mozilla-firefox
-
-printf 'Unattended-Upgrade::Allowed-Origins:: "LP-PPA-mozillateam:${distro_codename}";' >> 51unattended-upgrades-firefox
-sudo mv 51unattended-upgrades-firefox /etc/apt/apt.conf.d/51unattended-upgrades-firefox
-sudo chown root:root /etc/apt/apt.conf.d/51unattended-upgrades-firefox
-
-# Install firefox
-echo "Installing standard firefox"
-sudo add-apt-repository ppa:mozillateam/ppa -y
+echo "Install brave browser"
+sudo apt install apt-transport-https curl -y
+sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg            
+echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main"|sudo tee /etc/apt/sources.list.d/brave-browser-release.list
 sudo apt update
-sudo apt install firefox -y
+sudo apt install brave-browser -y
 
 echo "Script completed successfully"
 
