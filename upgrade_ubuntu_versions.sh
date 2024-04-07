@@ -5,8 +5,8 @@ upgrade (){
     sudo apt update
     sudo apt install -f -y
     # Fix for "Package has been kept back" 
-    sudo apt install aptitude 
-    sudo aptitude safe-upgrade
+    sudo apt install aptitude -y
+    sudo aptitude safe-upgrade -y
     # Bypass Phased Updates
     sudo apt -o APT::Get::Always-Include-Phased-Updates=true upgrade -y
     sudo apt upgrade -y
