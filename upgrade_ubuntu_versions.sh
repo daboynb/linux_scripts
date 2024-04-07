@@ -7,7 +7,6 @@ upgrade (){
     sudo apt -o APT::Get::Always-Include-Phased-Updates=true upgrade -y
     sudo apt dist-upgrade -y
     sudo apt autoremove --purge -y
-    # Fix for "Package has been kept back" 
     sudo apt install aptitude -y
     sudo aptitude safe-upgrade -y
     sudo do-release-upgrade
