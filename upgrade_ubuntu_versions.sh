@@ -1,14 +1,40 @@
 #!/bin/bash
 
-# Upgrade function
+# Hold function
+hold(){
+    sudo apt upgrade -y > apt_output.txt
+
+    last_line=$(cat apt_output.txt | grep -o '[0-9]' | tail -n2 apt_output.txt | sed '2d')
+
+    numbers=$(echo "$last_line" | grep -o '[0-9]\+')
+
+    pkg=$(echo $numbers | awk '{print $NF}')
+
+    # Check if packages are kept back
+    if [[ $pkg -gt 0 ]]; then
+        echo "There are packages that need to be updated."
+        sudo apt install aptitude -y
+        sudo aptitude safe-upgrade -y
+        rm apt_output.txt
+    fi 
+}
+
+# System update function
 upgrade (){
     sudo apt update
     sudo apt install -f -y
     sudo apt -o APT::Get::Always-Include-Phased-Updates=true upgrade -y
     sudo apt dist-upgrade -y
     sudo apt autoremove --purge -y
-    sudo apt install aptitude -y
-    sudo aptitude safe-upgrade -y
+
+    # Check for hold packages twice
+    hold > /dev/null 2>&1
+    if hold | grep -q "There are packages that need to be updated."; then
+        echo "There are packages that need to be updated."
+        exit
+    fi
+
+    # Start the upgrade process
     sudo do-release-upgrade
 }
 
