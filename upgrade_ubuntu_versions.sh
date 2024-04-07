@@ -2,11 +2,16 @@
 
 # Upgrade function
 upgrade (){
-    sudo apt-get update
-    sudo apt-get upgrade -y
-    sudo apt-get dist-upgrade -y
-    sudo apt-get install -f -y
-    sudo apt-get autoremove --purge -y
+    sudo apt update
+    sudo apt install -f -y
+    # Fix for "Package has been kept back" 
+    sudo apt install aptitude 
+    sudo aptitude safe-upgrade
+    # Bypass Phased Updates
+    sudo apt -o APT::Get::Always-Include-Phased-Updates=true upgrade -y
+    sudo apt upgrade -y
+    sudo apt dist-upgrade -y
+    sudo apt autoremove --purge -y
     sudo do-release-upgrade
 }
 
