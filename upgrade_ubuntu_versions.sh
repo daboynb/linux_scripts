@@ -13,7 +13,7 @@ upgrade (){
 # Check if sudo apt update ran succesfully
 apt_update(){
     output=$(sudo apt update 2>&1)
-    if grep -q 'Err\|W:' <<< "$output"; then
+    if echo $output | grep -q 'Err\|W:'; then
         echo "sudo apt update failed"
         echo "$output" | grep -E 'Err|W:'
     else
