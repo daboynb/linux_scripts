@@ -31,7 +31,7 @@ sudo ufw enable
 
 # Install tmux
 sudo apt install tmux -y
-echo "set -g terminal-overrides 'xterm*:smcup@:rmcup@'" > .tmux.comf
+echo "set -g terminal-overrides 'xterm*:smcup@:rmcup@'" > .tmux.conf
 
 # Install fail2ban
 sudo apt-get install fail2ban -y
