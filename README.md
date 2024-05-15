@@ -140,3 +140,6 @@ Post installation script that I made for my raspberry.
 
 # fix_for_luks_tpm_bypass.sh
 Fix suggested by https://pulsesecurity.co.nz/advisories/tpm-luks-bypass to avoid unlocking TPM-based disk encryption.
+
+# fmmpeg.sh
+Split videos into pngs
