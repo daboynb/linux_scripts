@@ -53,6 +53,8 @@ Choose an option:  "
 
         # EXtract every single frame from the selected video
         ffmpeg -i "$video_file" "frame%d.png"
+
+        echo "The output is inside /tmp/extracted_video/$video_file_name_without_ext"
         ;;
     2)
         ffmpeg_func
@@ -70,6 +72,8 @@ Choose an option:  "
 
         # Output one image every x second or minute
         ffmpeg -i "$video_file" -vf fps="$selected_time" "out%d.png"
+
+        echo "The output is inside /tmp/extracted_video/$video_file_name_without_ext"
         ;;
     0)      
         echo "Bye bye."
