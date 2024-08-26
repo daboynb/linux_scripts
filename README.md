@@ -142,4 +142,8 @@ Post installation script that I made for my raspberry.
 Fix suggested by https://pulsesecurity.co.nz/advisories/tpm-luks-bypass to avoid unlocking TPM-based disk encryption.
 
 # fmmpeg.sh
-Split videos into pngs
+Split videos into pngs.
+
+# led.sh
+
+Manage led on wayland.
