@@ -11,25 +11,25 @@ sudo apt-get install build-essential -y
 
 # Download coreutils
 cd /home/"$USER"
-wget https://ftp.gnu.org/gnu/coreutils/coreutils-9.1.tar.xz
-tar xvJf coreutils-9.1.tar.xz
-cd /home/"$USER"/coreutils-9.1
+wget https://ftp.gnu.org/gnu/coreutils/coreutils-9.5.tar.xz
+tar xvJf coreutils-9.5.tar.xz
+cd /home/"$USER"/coreutils-9.5
 
 # Download and apply the patch
-wget https://raw.githubusercontent.com/jarun/advcpmv/master/advcpmv-0.9-9.1.patch
-patch -p1 -i advcpmv-0.9-9.1.patch 
+wget https://raw.githubusercontent.com/jarun/advcpmv/master/advcpmv-0.9-9.5.patch
+patch -p1 -i advcpmv-0.9-9.5.patch 
 ./configure
 make
 
 # Save the patched binaries
 mkdir /home/"$USER"/patched
-cp /home/"$USER"/coreutils-9.1/src/cp /home/"$USER"/patched
-cp /home/"$USER"/coreutils-9.1/src/mv /home/"$USER"/patched
+cp /home/"$USER"/coreutils-9.5/src/cp /home/"$USER"/patched
+cp /home/"$USER"/coreutils-9.5/src/mv /home/"$USER"/patched
 
 # Clean 
 cd /home/"$USER"
-rm -rf /home/"$USER"/coreutils-9.1
-rm /home/"$USER"/coreutils-9.1.tar.xz
+rm -rf /home/"$USER"/coreutils-9.5
+rm /home/"$USER"/coreutils-9.5.tar.xz
 
 # Copy modfied binaries
 sudo cp /home/"$USER"/patched/cp /usr/local/bin/cp
