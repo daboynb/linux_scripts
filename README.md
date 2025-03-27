@@ -147,3 +147,6 @@ Split videos into pngs.
 # led.sh
 
 Manage led on wayland.
+
+# docker_exec.sh
+This script lists running Docker containers, allows you to select one, and then logs into it with /bin/bash.
