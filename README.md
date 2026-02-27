@@ -150,3 +150,6 @@ Manage led on wayland.
 
 # docker_exec.sh
 This script lists running Docker containers, allows you to select one, and then logs into it with /bin/bash.
+
+# setup-pip-require-venv.sh
+Block pip install outside a virtualenv. Requires sudo.
