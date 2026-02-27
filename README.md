@@ -153,3 +153,6 @@ This script lists running Docker containers, allows you to select one, and then 
 
 # setup-pip-require-venv.sh
 Block pip install outside a virtualenv. Requires sudo.
+
+# block-npm-global.sh
+Block npm install -g (global installs). Adds a shell function to ~/.bashrc.
